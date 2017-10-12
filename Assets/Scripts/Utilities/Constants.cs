@@ -159,7 +159,7 @@ public class Constants
     public const int Intro = 0;
     public const int MainMenu = 1;
     public const int CutScene = 2;
-    public const int GamePlay = 3;
+    public const int GamePlay = 2;
     public const int secondEnvironment = 4;
 
 
