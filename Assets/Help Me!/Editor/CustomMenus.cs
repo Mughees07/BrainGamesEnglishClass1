@@ -330,14 +330,14 @@ public class CustomMenus :MonoBehaviour{
 	}
 
 
-	[MenuItem("HelpMe!/AddBoxCollider _1")]
-	private static void AddBoxCollider()
-	{		
-		if(!EditorApplication.isPlaying)
-		{
-			EditorApplication.ExecuteMenuItem("Component/Physics/Box Collider");
-		}
-	}//End of PauseButton
+//	[MenuItem("HelpMe!/AddBoxCollider _1")]
+//	private static void AddBoxCollider()
+//	{		
+////		if(!EditorApplication.isPlaying)
+////		{
+////			EditorApplication.ExecuteMenuItem("Component/Physics/Box Collider");
+////		}
+//	}//End of PauseButton
 
 	[MenuItem("HelpMe!/Copy _3")]
 	private static void CopyComponents()

@@ -94,9 +94,7 @@ public class MenuManager : MonoBehaviour
                     Destroy(GameObject.FindWithTag(Tags.LevelExit));
                 }
                 GAManager.Instance.LogDesignEvent("GamePlay:Pause");
-                if (GameObject.FindGameObjectWithTag(Tags.Joystick))
-                    GameObject.FindGameObjectWithTag(Tags.Joystick).transform.GetChild(0).gameObject.GetComponent<CanvasGroup>().alpha = 0;
-							
+              
 
                 break;
         }

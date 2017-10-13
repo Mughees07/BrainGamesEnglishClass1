@@ -50,7 +50,6 @@ GameObject:
   - 114: {fileID: 11465048}
   - 114: {fileID: 11466384}
   - 114: {fileID: 11459258}
-  - 114: {fileID: 11475386}
   m_Layer: 5
   m_Name: LevelSelectionMenu
   m_TagString: LevelSelectionMenu
@@ -8637,42 +8636,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11475386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0665f2edd174284bba01af1df87c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BrightStarsForAllLevels:
-  - {fileID: 11464468}
-  - {fileID: 11429700}
-  - {fileID: 11464318}
-  - {fileID: 11422828}
-  - {fileID: 11489456}
-  - {fileID: 11473660}
-  - {fileID: 11464620}
-  - {fileID: 11450786}
-  - {fileID: 11445230}
-  - {fileID: 11473998}
-  - {fileID: 11421780}
-  - {fileID: 11430122}
-  - {fileID: 11400328}
-  - {fileID: 11444434}
-  - {fileID: 11471632}
-  - {fileID: 11477942}
-  - {fileID: 11442422}
-  - {fileID: 11433804}
-  - {fileID: 11416812}
-  - {fileID: 11448236}
-  - {fileID: 11479442}
-  - {fileID: 11484808}
-  - {fileID: 11445298}
-  - {fileID: 11484162}
 --- !u!114 &11475668
 MonoBehaviour:
   m_ObjectHideFlags: 1
