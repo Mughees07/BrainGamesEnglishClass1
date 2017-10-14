@@ -372,7 +372,7 @@ namespace GameAnalyticsSDK.Setup
 			Games = games;
 		}
 
-		public static string[] GetStudioNames(List<Studio> studios, bool addFirstEmpty = true)
+		public static string[] GetStudioNames(List<Studio> studios, bool addFirstEmpty)
 		{
 			if(studios == null)
 			{

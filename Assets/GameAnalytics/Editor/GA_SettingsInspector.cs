@@ -778,7 +778,7 @@ namespace GameAnalyticsSDK.Editor
 								GUILayout.BeginHorizontal();
 								//GUILayout.Label("", GUILayout.Width(7));
 								GUILayout.Label(_studiosLabel, GUILayout.Width(50));
-								string[] studioNames = Studio.GetStudioNames(ga.Studios);
+								string[] studioNames = Studio.GetStudioNames(ga.Studios,true);
 								if(ga.SelectedStudio[i] >= studioNames.Length)
 								{
 									ga.SelectedStudio[i] = 0;

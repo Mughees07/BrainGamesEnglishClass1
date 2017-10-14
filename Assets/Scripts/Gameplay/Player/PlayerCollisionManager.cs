@@ -43,9 +43,9 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 				for (int i = 0; i < other.gameObject.transform.childCount; i++) {
 
-
+					other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();
+					other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ().AddForce(new Vector2(20f,10f),ForceMode2D.Impulse);
 				}
-
 			} else {
 				Variables.currentHealth -= 20;
 				if (Variables.currentHealth <= 0)
