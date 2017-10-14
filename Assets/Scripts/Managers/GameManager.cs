@@ -217,18 +217,7 @@ public class GameManager : SingeltonBase<GameManager>
 
     public void AddGems(int gems)
     {
-        if (Variables.challengeState)
-        {
-            //	Debug.LogError("Challenge Win");
-			
-            UserPrefs.totalGems += 15;
-            //Constants.ChallengeState=false;
-			
-        }
-        //Debug.LogError("Coins to be added"+coins+"Coins before"+UserPrefs.totalCoins);
-        UserPrefs.totalGems += gems;
-        //	Debug.LogError("Coins After"+UserPrefs.totalCoins);
-	
+        
         UserPrefs.Save();
     }
 
@@ -248,77 +237,10 @@ public class GameManager : SingeltonBase<GameManager>
 
     public void PurchaseProductResult(string package, bool result, string purchaseData, string signature)
     {
-        LogGAEvent(package, result, purchaseData, signature);
-        LogResourceEvent(package);
-        if (result)
-        {
-            GAManager.Instance.LogDesignEvent("Shop:IAP:Success");
-            //if(package != Consta)
-            UserPrefs.isIgnoreAds = true;
-            #if UNITY_ANDROID
-            //GoogleIAB.consumeProduct(package);
-            #endif			
-
-            if (package == Constants.PACKAGE_1)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_1_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_1_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_1_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_1_GEMS_AMOUNT);
-
-            }
-            else if (package == Constants.PACKAGE_2)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_2_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_2_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_2_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_2_GEMS_AMOUNT);
-
-            }
-            else if (package == Constants.PACKAGE_3)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_3_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_3_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_3_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_3_GEMS_AMOUNT);
-
-            }
-            else if (package == Constants.PACKAGE_4)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_4_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_4_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_4_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_4_GEMS_AMOUNT);
-
-            }
-            else if (package == Constants.PACKAGE_5)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_5_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_5_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_5_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_5_GEMS_AMOUNT);
-
-            }
-            else if (package == Constants.PACKAGE_VGP)
-            {
-                Variables.currentPackageCoins = Constants.PACKAGE_VGP_COINS_AMOUNT;
-                Variables.currentPackageGems = Constants.PACKAGE_VGP_GEMS_AMOUNT;
-                AddCoins(Constants.PACKAGE_VGP_COINS_AMOUNT);
-                AddGems(Constants.PACKAGE_VGP_GEMS_AMOUNT);
-
-            }
-            //Debug.LogError("curr package = "+ Constants.currentPackageCoins);
-
-            if (package == Constants.PACKAGE_UNLOCK_ALL_PLAYERS)
-            {
-                for (int i = 0; i < UserPrefs.playerUnlockArray.Length; i++)
-                    UserPrefs.playerUnlockArray[i] = true;
-				
-                UserPrefs.Save();
-            }
+       
 		
 	
-        } 
+        
     }
 
     #endregion

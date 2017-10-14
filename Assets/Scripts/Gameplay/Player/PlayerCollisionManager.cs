@@ -23,7 +23,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 		} else if (other.gameObject.tag.Equals (Tags.RickshawTrigger)) {
 		
-		
+				
 		
 		}
 

@@ -17,6 +17,9 @@ TagManager:
   - RateUs
   - Enjoying
   - LevelExit
+  - SoundManager
+  - MenuBar
+  - TutorialManager
   layers:
   - Default
   - TransparentFX
