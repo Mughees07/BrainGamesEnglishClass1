@@ -84,7 +84,7 @@ public class PopUp : MonoBehaviour
 
                 Time.timeScale = 1f;
 
-                AdsManager.Instance.ShowAdOnLevelEnd();
+                //AdsManager.Instance.ShowAdOnLevelEnd();
 
 //                GameObject.FindObjectOfType<UnityStandardAssets.CrossPlatformInput.Joystick>().OnDisable();
 
@@ -120,7 +120,7 @@ public class PopUp : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Next":
-                AdsManager.Instance.ShowAdOnLevelEnd();
+               // AdsManager.Instance.ShowAdOnLevelEnd();
                 Constants.selectedLevel += 1;
 
 //			if (GameManager.Instance.currentGameMode == GameManager.GameMode.CampaignMode) {
@@ -148,7 +148,7 @@ public class PopUp : MonoBehaviour
                 }
                 break;
             case "Home":
-                AdsManager.Instance.ShowAdOnLevelEnd();
+               // AdsManager.Instance.ShowAdOnLevelEnd();
                 Constants.selectedLevel = 0;
 
                 Time.timeScale = 1f;
@@ -228,7 +228,7 @@ public class PopUp : MonoBehaviour
             case "WatchVideo":
 //			UnityAdsHelper.ShowAd (Constants.REWARDED_ADS_ID_ANDROID);
 
-                AdsManager.Instance.ShowRewardedVideo();
+                //AdsManager.Instance.ShowRewardedVideo();
               
                 GAManager.Instance.LogDesignEvent("LevelSelection:RewardedVideo");
                 Destroy(gameObject);
@@ -236,7 +236,7 @@ public class PopUp : MonoBehaviour
             case "WatchVideoSurvival":
                 UserPrefs.UnlockSurvivalMode = true;
 //			UnityAdsHelper.ShowAd (Constants.REWARDED_ADS_ID_ANDROID);
-                AdsManager.Instance.ShowRewardedVideo();
+               // AdsManager.Instance.ShowRewardedVideo();
                 GAManager.Instance.LogDesignEvent("SurvivalMode:RewardedVideo");
                 Destroy(gameObject);
 //			UserPrefs.UnlockSurvivalMode = false;
@@ -247,7 +247,7 @@ public class PopUp : MonoBehaviour
             case "RevivePlayer":
                 UserPrefs.RevivePlayer = true;
 //			UnityAdsHelper.ShowAd (Constants.REWARDED_ADS_ID_ANDROID);
-                AdsManager.Instance.ShowRewardedVideo();
+                //AdsManager.Instance.ShowRewardedVideo();
 
                 GAManager.Instance.LogDesignEvent("GamePlayRevive:RewardedVideo");
                 RevivePlayer();
@@ -271,7 +271,7 @@ public class PopUp : MonoBehaviour
 
         if ((Constants.selectedLevel + 1) % 3 == 2)
         {
-            AdsManager.Instance.ShowLevelEndOrCategoryAd();
+           // AdsManager.Instance.ShowLevelEndOrCategoryAd();
 
         }
         else

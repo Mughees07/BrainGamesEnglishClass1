@@ -45,8 +45,8 @@ public class ArrowController : MonoBehaviour
                 }
             }
         }
-        else
-            target = GameObject.FindGameObjectWithTag(Tags.Fence).transform;
+      //  else
+        //    target = GameObject.FindGameObjectWithTag(Tags.Fence).transform;
 
         Hashtable table = new Hashtable();
 

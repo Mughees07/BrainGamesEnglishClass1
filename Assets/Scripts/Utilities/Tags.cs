@@ -48,10 +48,11 @@ public class Tags
 	public const string waypoint = "Waypoint";
 	/***********************************************************************/
 
+	//Trigger
 
-	public const string Knife = "Knife";
-	public const string CrowBar = "CrowBar";
-	public const string Bat = "Bat";
+	public const string carTrigger = "CarTrigger";
+	public const string RickshawTrigger = "RickshawTrigger";
+
 
 	// Challenges
 	public const string TutorialManager = "TutorialManager";
@@ -61,16 +62,6 @@ public class Tags
 	public const string LevelManager = "LevelManager";
 	public const string WeaponsManager = "WeaponsManager";
 
-	public const string Fence = "Fence";
-	public const string wallBlue = "WallBlue";
-	public const string wallBrown = "WallBrown";
-	public const string wallGrey = "WallGrey";
-
-	public const string exitWall = "ExitWall";
-
-	public const string Arrow = "Arrow";
-
-	public const string EffectsController = "EffectsController";
 	public const string Joystick = "Joystick";
 
 	public const string CrossPromotionAdOverall = "CrossPromotionAdOverall";

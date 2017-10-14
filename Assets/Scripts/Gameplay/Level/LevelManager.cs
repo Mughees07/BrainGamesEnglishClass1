@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
 
         EnemiesCount = CompleteAllLevels[Constants.selectedLevel].KillAmount;
 
-        AdsManager.Instance.RequestForAd();
+        //AdsManager.Instance.RequestForAd();
 
         GAManager.Instance.LogDesignEvent("GamePlay:LevelStart:" + (Constants.selectedLevel + 1));
 
@@ -307,7 +307,7 @@ public class LevelManager : MonoBehaviour
             if ((Constants.selectedLevel + 1) % 3 == 2)
             {
                 Variables.isLevelComplete = true;
-                AdsManager.Instance.ShowLevelEndOrCategoryAd();
+               // AdsManager.Instance.ShowLevelEndOrCategoryAd();
                 //TapdaqManager.Instance.ShowCrosspromotionAdCategory();
 		
             }

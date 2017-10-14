@@ -5,8 +5,8 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
+//using Newtonsoft.Json;
+//using Newtonsoft.Json.Bson;
 using System.Security.Policy;
 
 public class UserPrefs : MonoBehaviour
