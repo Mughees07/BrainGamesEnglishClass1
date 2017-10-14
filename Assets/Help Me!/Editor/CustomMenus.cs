@@ -339,58 +339,58 @@ public class CustomMenus :MonoBehaviour{
 ////		}
 //	}//End of PauseButton
 
-	[MenuItem("HelpMe!/Copy _3")]
-	private static void CopyComponents()
-	{
-		allComponents = null;
-		GameObject selectedObject = Selection.activeGameObject;
-		allComponents = selectedObject.GetComponents(typeof(Component));
-	}
+//	[MenuItem("HelpMe!/Copy _3")]
+//	private static void CopyComponents()
+//	{
+//		allComponents = null;
+//		GameObject selectedObject = Selection.activeGameObject;
+//		allComponents = selectedObject.GetComponents(typeof(Component));
+//	}
 
 
 
 	public static Component[] allComponents;
 
 	System.Reflection.FieldInfo[] fields;
-	[MenuItem("HelpMe!/pasteValues _4")]
-	private static void PasteComponents()
-	{
-		GameObject[] selectedObjects = Selection.gameObjects;
-
-		foreach (GameObject obj in selectedObjects)
-		{
-			foreach (Component c in allComponents)
-			{
-
-				Component copy = obj.AddComponent(c.GetType());
-				System.Reflection.FieldInfo[] fields = c.GetType().GetFields();
-				; 
-				foreach (System.Reflection.FieldInfo field in fields)
-				{
-					field.SetValue(copy, field.GetValue(c));
-				}
-				BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default | BindingFlags.DeclaredOnly;
-				PropertyInfo[] pinfos = c.GetType().GetProperties(flags);
-				foreach (var pinfo in pinfos)
-				{
-					if (pinfo.CanWrite)
-					{
-						try
-						{
-							pinfo.SetValue(copy, pinfo.GetValue(c, null), null);
-						}
-						catch
-						{
-						} // In case of NotImplementedException being thrown. For some reason specifying that exception didn't seem to catch it, so I didn't catch anything specific.
-					}
-				}
-
-
-
-
-			}
-		}
-	}
+//	[MenuItem("HelpMe!/pasteValues _4")]
+//	private static void PasteComponents()
+//	{
+//		GameObject[] selectedObjects = Selection.gameObjects;
+//
+//		foreach (GameObject obj in selectedObjects)
+//		{
+//			foreach (Component c in allComponents)
+//			{
+//
+//				Component copy = obj.AddComponent(c.GetType());
+//				System.Reflection.FieldInfo[] fields = c.GetType().GetFields();
+//				; 
+//				foreach (System.Reflection.FieldInfo field in fields)
+//				{
+//					field.SetValue(copy, field.GetValue(c));
+//				}
+//				BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default | BindingFlags.DeclaredOnly;
+//				PropertyInfo[] pinfos = c.GetType().GetProperties(flags);
+//				foreach (var pinfo in pinfos)
+//				{
+//					if (pinfo.CanWrite)
+//					{
+//						try
+//						{
+//							pinfo.SetValue(copy, pinfo.GetValue(c, null), null);
+//						}
+//						catch
+//						{
+//						} // In case of NotImplementedException being thrown. For some reason specifying that exception didn't seem to catch it, so I didn't catch anything specific.
+//					}
+//				}
+//
+//
+//
+//
+//			}
+//		}
+//	}
 
 }
 

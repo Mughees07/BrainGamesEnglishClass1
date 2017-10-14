@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-
     public enum TutorialState
     {
         StoryStart,  
@@ -24,10 +23,9 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         UserPrefs.Load();
+		NextTutorial (TutorialState.StoryStart);
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
     }
-
- 
 
     public void HideTutorialPanel()
     {
@@ -40,31 +38,28 @@ public class TutorialManager : MonoBehaviour
 
 		if (_currentTutorialState.Equals(TutorialState.HealthBar))
 			Number=3;
+		
 		else if (_currentTutorialState.Equals(TutorialState.BoostAttack))
 			Number=2;
+		
 		else if (_currentTutorialState.Equals(TutorialState.RaceButton))
 			Number=1;
+		
 		else 
 			Number=0;
-		
 
         TutorialPanels[Number].SetActive(true);
         TutorialTxt = TutorialPanels[Number].GetComponentInChildren<Text>();
-
+		TutorialTxt.text = Constants.TutorialText[Number];
         if (_currentTutorialState.Equals(TutorialState.HealthBar))
         {
             Number++;
         }
 
         GAManager.Instance.LogDesignEvent("Tutorial:Step:" + Number);
-		     
-
-       
 
         switch (_currentTutorialState)
-        {
-
-
+      {
         case TutorialState.StoryStart:
                 TutorialTxt.text = Constants.TutorialText[0];
                 break;
@@ -91,56 +86,51 @@ public class TutorialManager : MonoBehaviour
 
     }
 
- 
-
-  
-
-
-
-  
-
     public void NextTutorial(TutorialState _current)
     {
-
         switch (_current)
         {
+
 		case TutorialState.StoryStart: 
-                if (Number == 1)
-                {
-				_currentTutorialState = TutorialState.RaceButton;
-                    showText();
-                }
+             
+			showText();
+			_currentTutorialState = TutorialState.RaceButton;       
                 break;
           
 		case TutorialState.RaceButton: 
-                if (Number == 2)
-                {
+  				
+			showText();
 				_currentTutorialState = TutorialState.BoostAttack;
-                    showText();
-                }
                 break;
+
 		case TutorialState.BoostAttack: 
-                if (Number == 3)
-                {
+  	
+			showText();
 				_currentTutorialState = TutorialState.HealthBar;
-                   showText();
-                }
                 break;
+
 		case TutorialState.HealthBar: 
-                if (Number == 4)
-                {
-                    _currentTutorialState = TutorialState.HealthBar;
-                    showText();
-                }
+
+			showText();
+             _currentTutorialState = TutorialState.HealthBar;
                 break;
+
 		case TutorialState.SwitchToCar:
-			TutorialTxt.text = Constants.TutorialText[4];
+
+			showText();
+			_currentTutorialState = TutorialState.SwitchToCar;
 			break;
+
 		case TutorialState.SwitchToRickshaw:
-			TutorialTxt.text = Constants.TutorialText[6];               
+
+			showText();
+			_currentTutorialState = TutorialState.SwitchToRickshaw;           
 			break;
+
 		case TutorialState.StoryEnd:
-			TutorialTxt.text = Constants.TutorialText[6];
+
+			showText();
+			_currentTutorialState = TutorialState.StoryEnd;
 			break;
         }
     }
