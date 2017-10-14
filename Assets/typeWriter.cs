@@ -12,7 +12,7 @@ public class typeWriter : MonoBehaviour {
 	void Start ()
 	{
 		StartCoroutine(ShowText());
-		fullText = TutorialManager.TutorialTxt.text.ToString();
+		//fullText = TutorialManager.TutorialTxt.text.ToString();
 	}
 
 	IEnumerator ShowText()
