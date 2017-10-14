@@ -7,6 +7,21 @@ public class VehicleSelector : MonoBehaviour {
 	public GameObject Rickshaw;
 	public GameObject Car;
 	// Use this for initialization
+	public void SelectBus()
+	{
+		
+	}
+
+	public void SelectRickshaw()
+	{
+
+	}
+
+	public void SelectCar()
+	{
+
+	}
+
 
 
 }

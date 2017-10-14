@@ -14,16 +14,19 @@ public class PlayerCollisionManager : MonoBehaviour {
 	}
 
 
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerEnter2D(Collider2D other)
 	{
 
 		if (other.gameObject.tag.Equals (Tags.carTrigger)) {
 
 
 
+			Debug.Log ("Car Trigger");
+			
+
 		} else if (other.gameObject.tag.Equals (Tags.RickshawTrigger)) {
 		
-				
+			Debug.Log ("Rickshaw Trigger");
 		
 		}
 

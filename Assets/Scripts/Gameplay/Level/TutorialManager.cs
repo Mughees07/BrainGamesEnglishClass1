@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
+
+	public GameObject raceButton;
     public enum TutorialState
     {
         StoryStart,  
@@ -21,14 +23,17 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] TutorialPanels;
 	public Text storyPopUp;
 
-	public float delay = 0.1f;
+	public float delay = 0.01f;
 	public string fullText;
 
     void Start()
     {
         UserPrefs.Load();
+
 		NextTutorial (TutorialState.StoryStart);
-		StartCoroutine(ShowText());
+
+
+
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
     }
 
@@ -36,15 +41,29 @@ public class TutorialManager : MonoBehaviour
     {
     }
 
-	IEnumerator ShowText()
+	IEnumerator ShowText(string desc)
 	{
-		string txt= TutorialPanels[Number].GetComponentInChildren<Text>().text;
-
-		for(int i = 0; i <=txt.Length ; i++)
+		for(int i = 0; i <=desc.Length ; i++)
 		{ 
-			TutorialTxt.text = txt.Substring (0,i);
-			storyPopUp.GetComponent<Text>().text =TutorialTxt.text ;
+			TutorialTxt.text = desc.Substring (0,i);
 			yield return new WaitForSeconds(delay);
+		}
+		yield return new WaitForSeconds (2f);
+		if (_currentTutorialState == TutorialState.StoryStart ||
+			_currentTutorialState == TutorialState.StoryEnd ||
+			_currentTutorialState == TutorialState.SwitchToCar ||
+			_currentTutorialState == TutorialState.SwitchToRickshaw)
+			References.Instance.imageFade.FadeIn ();
+		
+		if (Number == 0) {
+			TutorialPanels [Number].SetActive (false);
+
+			yield return new WaitForSeconds (1f);
+
+
+			
+			if (_currentTutorialState == TutorialState.StoryStart)
+				NextTutorial (TutorialState.StoryStart);
 		}
 	}
 
@@ -61,46 +80,43 @@ public class TutorialManager : MonoBehaviour
 			Number=2;
 		
 		else if (_currentTutorialState.Equals(TutorialState.RaceButton))
-			Number=1;
-		
+			Number=1;		
 		else 
 			Number=0;
 
         TutorialPanels[Number].SetActive(true);
         TutorialTxt = TutorialPanels[Number].GetComponentInChildren<Text>();
-		TutorialTxt.text = Constants.TutorialText[Number];
+		StartCoroutine (ShowText (Constants.TutorialText[Number]));
+		//TutorialTxt.text = Constants.TutorialText[Number];
 
-        if (_currentTutorialState.Equals(TutorialState.HealthBar))
-        {
-            Number++;
-        }
+        
 
         GAManager.Instance.LogDesignEvent("Tutorial:Step:" + Number);
 
-        switch (_currentTutorialState)
-      {
-        case TutorialState.StoryStart:
-                TutorialTxt.text = Constants.TutorialText[0];
-                break;
-		case TutorialState.RaceButton:
-                TutorialTxt.text = Constants.TutorialText[1];
-                break;
-		case TutorialState.BoostAttack:
-                TutorialTxt.text = Constants.TutorialText[2];               
-                break;
-		case TutorialState.HealthBar:
-                TutorialTxt.text = Constants.TutorialText[3];
-                break;
-		case TutorialState.SwitchToCar:
-                TutorialTxt.text = Constants.TutorialText[4];
-                break;
-		case TutorialState.SwitchToRickshaw:
-                TutorialTxt.text = Constants.TutorialText[5];               
-                break;
-		case TutorialState.StoryEnd:
-				TutorialTxt.text = Constants.TutorialText[6];
-				break;
-        }
+//        switch (_currentTutorialState)
+//      {
+//        case TutorialState.StoryStart:
+//                TutorialTxt.text = Constants.TutorialText[0];
+//                break;
+//		case TutorialState.RaceButton:
+//                TutorialTxt.text = Constants.TutorialText[1];
+//                break;
+//		case TutorialState.BoostAttack:
+//                TutorialTxt.text = Constants.TutorialText[2];               
+//                break;
+//		case TutorialState.HealthBar:
+//                TutorialTxt.text = Constants.TutorialText[3];
+//                break;
+//		case TutorialState.SwitchToCar:
+//                TutorialTxt.text = Constants.TutorialText[4];
+//                break;
+//		case TutorialState.SwitchToRickshaw:
+//                TutorialTxt.text = Constants.TutorialText[5];               
+//                break;
+//		case TutorialState.StoryEnd:
+//				TutorialTxt.text = Constants.TutorialText[6];
+//				break;
+//        }
 
 
     }
@@ -113,43 +129,46 @@ public class TutorialManager : MonoBehaviour
 		case TutorialState.StoryStart: 
              
 			showText();
-			_currentTutorialState = TutorialState.RaceButton;       
+			_currentTutorialState = TutorialState.RaceButton; 
+
                 break;
           
-		case TutorialState.RaceButton: 
-  				
+		case TutorialState.RaceButton:  				
+			UserPrefs.isTutorialFinished = false;
+			_currentTutorialState = TutorialState.BoostAttack;
 			showText();
-				_currentTutorialState = TutorialState.BoostAttack;
-                break;
+             break;
 
 		case TutorialState.BoostAttack: 
   	
+
+			_currentTutorialState = TutorialState.HealthBar;
 			showText();
-				_currentTutorialState = TutorialState.HealthBar;
                 break;
 
 		case TutorialState.HealthBar: 
 
+
+			_currentTutorialState = TutorialState.SwitchToCar;
 			showText();
-             _currentTutorialState = TutorialState.HealthBar;
                 break;
 
 		case TutorialState.SwitchToCar:
 
 			showText();
-			_currentTutorialState = TutorialState.SwitchToCar;
+			_currentTutorialState = TutorialState.SwitchToRickshaw;
 			break;
 
 		case TutorialState.SwitchToRickshaw:
 
 			showText();
-			_currentTutorialState = TutorialState.SwitchToRickshaw;           
+			_currentTutorialState = TutorialState.StoryEnd;           
 			break;
 
 		case TutorialState.StoryEnd:
 
 			showText();
-			_currentTutorialState = TutorialState.StoryEnd;
+			_currentTutorialState = TutorialState.StoryStart;
 			break;
         }
     }

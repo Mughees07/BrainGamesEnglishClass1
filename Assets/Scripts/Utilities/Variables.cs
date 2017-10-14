@@ -5,6 +5,7 @@ public class Variables
 {
 	public static int points = 0;
 	public static int currentHealth;
+	public static GameObject currentPlayerNumber;
 
 	public static bool isBtnRestoreSource = false;
 
@@ -12,6 +13,9 @@ public class Variables
 	public static bool isRatesUS = false;
 	public static bool isLevelComplete = false;
 	public static bool isLevelFail = false;
+
+
+
 
 
 
