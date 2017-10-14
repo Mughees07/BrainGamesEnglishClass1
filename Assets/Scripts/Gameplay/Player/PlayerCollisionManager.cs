@@ -5,7 +5,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+			
 	}
 	
 	// Update is called once per frame
@@ -39,6 +39,15 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 		}	else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
 
+			if (Variables.boost) {
+
+
+			} else {
+				Variables.currentHealth -= 20f;
+				if (Variables.currentHealth <= 0)
+					ShowLevelFailPopup ();
+			}
+			Variables.boost = false;
 			References.Instance.boostButton.SetActive (false);
 		}
 
@@ -58,7 +67,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 		//if(!GameObject.FindWithTag(Tags.LevelExit))
 		//	Time.timeScale = 1;
 		GAManager.Instance.LogDesignEvent("GamePlay:LevelComplete:"+ (Constants.selectedLevel+1));
-
 		Instantiate(Resources.Load(Constants.LevelFail));
 	}
+
+
 }

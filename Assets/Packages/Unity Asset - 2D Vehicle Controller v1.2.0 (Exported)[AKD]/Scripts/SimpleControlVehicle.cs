@@ -181,6 +181,7 @@ public class SimpleControlVehicle : MonoBehaviour {
 
 	public void boost()
 	{
+		Variables.boost = true;
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (acceleration * 100, 2), ForceMode2D.Impulse);
 	}
 	// Assign the velocity to the regidbody2D of the vehicle.
