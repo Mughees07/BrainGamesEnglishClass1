@@ -19,17 +19,35 @@ public class TutorialManager : MonoBehaviour
     public Text TutorialTxt;
     public int Number = 0;
     public GameObject[] TutorialPanels;
+	public Text storyPopUp;
+
+	public float delay = 0.1f;
+	public string fullText;
 
     void Start()
     {
         UserPrefs.Load();
 		NextTutorial (TutorialState.StoryStart);
+		StartCoroutine(ShowText());
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
     }
 
     public void HideTutorialPanel()
     {
     }
+
+	IEnumerator ShowText()
+	{
+		string txt= TutorialPanels[Number].GetComponentInChildren<Text>().text;
+
+		for(int i = 0; i <=txt.Length ; i++)
+		{ 
+			TutorialTxt.text = txt.Substring (0,i);
+			storyPopUp.GetComponent<Text>().text =TutorialTxt.text ;
+			yield return new WaitForSeconds(delay);
+		}
+	}
+
 
     void showText()
     {
@@ -51,6 +69,7 @@ public class TutorialManager : MonoBehaviour
         TutorialPanels[Number].SetActive(true);
         TutorialTxt = TutorialPanels[Number].GetComponentInChildren<Text>();
 		TutorialTxt.text = Constants.TutorialText[Number];
+
         if (_currentTutorialState.Equals(TutorialState.HealthBar))
         {
             Number++;

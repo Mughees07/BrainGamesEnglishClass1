@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class typeWriter : MonoBehaviour {
+public class typeWriting : MonoBehaviour {
 
 	public float delay = 0.1f;
 	public string fullText;
@@ -12,7 +12,6 @@ public class typeWriter : MonoBehaviour {
 	void Start ()
 	{
 		StartCoroutine(ShowText());
-		fullText = TutorialManager.TutorialTxt.text.ToString();
 	}
 
 	IEnumerator ShowText()
@@ -20,7 +19,7 @@ public class typeWriter : MonoBehaviour {
 		for(int i = 0; i <= fullText.Length; i++)
 		{ 
 			currentText = fullText.Substring(0,i);
-			this.GetComponent<Text>().text =currentText;
+			this.GetComponent<Text>().text = currentText;
 			yield return new WaitForSeconds(delay);
 		}
 	}
