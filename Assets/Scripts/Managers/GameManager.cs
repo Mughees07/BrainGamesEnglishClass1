@@ -474,7 +474,7 @@ public class GameManager : SingeltonBase<GameManager>
             if ((Constants.selectedLevel + 1) % 3 == 2)
             {
                 Variables.isLevelComplete = false;
-                AdsManager.Instance.ShowLevelEndOrCategoryAdOnFail();
+//                AdsManager.Instance.ShowLevelEndOrCategoryAdOnFail();
 
 
             }
