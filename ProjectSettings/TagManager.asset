@@ -20,6 +20,8 @@ TagManager:
   - SoundManager
   - MenuBar
   - TutorialManager
+  - CarTrigger
+  - RickshawTrigger
   layers:
   - Default
   - TransparentFX
