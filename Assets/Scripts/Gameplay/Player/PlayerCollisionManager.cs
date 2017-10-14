@@ -34,11 +34,12 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 			ShowLevelCompletePopup ();	
 		} else if (other.gameObject.tag.Equals (Tags.HurdleTrigger)) {
-			
+
+			Debug.Log ("Hurdle Trigger");
 			References.Instance.boostButton.SetActive (true);
 
 		}	else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
-
+			Debug.Log ("Hurdle");
 			if (Variables.boost) {
 
 				for (int i = 0; i < other.gameObject.transform.childCount; i++) {
@@ -48,6 +49,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 				}
 			} else {
 				Variables.currentHealth -= 20;
+				References.Instance.HealthBar.fillAmount -= 0.2f;
 				if (Variables.currentHealth <= 0)
 					ShowLevelFailPopup ();
 			}
