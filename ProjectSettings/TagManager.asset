@@ -22,6 +22,9 @@ TagManager:
   - TutorialManager
   - CarTrigger
   - RickshawTrigger
+  - btnMusic
+  - btnSound
+  - LevelEndTrigger
   layers:
   - Default
   - TransparentFX

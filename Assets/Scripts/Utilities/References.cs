@@ -10,6 +10,10 @@ public class References : SingletonForScripts<References> {
 	public ImageFade imageFade;
 	public CameraControl cameraControl;
 
+	public GameObject raceButton;
+	public GameObject boostButton;
+
+
 	// Use this for initialization
 	void Start () {
 		//player=GameObject.FindGameObjectWithTag ("Player");

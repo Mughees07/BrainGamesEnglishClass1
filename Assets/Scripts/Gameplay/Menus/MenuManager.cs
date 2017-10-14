@@ -79,7 +79,7 @@ public class MenuManager : MonoBehaviour
 			    Debug.Log("LoadingNext");
                 break;
             case "PlayPlayerMenu": 
-			    ModeSelectionMenu();
+				LoadLevelSelection();
                 Destroy(gameObject);
                 GetComponent <Canvas>().enabled = false;
                 GAManager.Instance.LogDesignEvent("MainMenu:Play");
@@ -93,10 +93,8 @@ public class MenuManager : MonoBehaviour
                 {
                     Destroy(GameObject.FindWithTag(Tags.LevelExit));
                 }
-                GAManager.Instance.LogDesignEvent("GamePlay:Pause");
-              
-
-                break;
+                GAManager.Instance.LogDesignEvent("GamePlay:Pause"); 
+				break;
         }
 		
     }
@@ -106,7 +104,11 @@ public class MenuManager : MonoBehaviour
         PlayerSelectionMenuGameObject.GetComponent <Canvas>().enabled = true;
 //		Instantiate (Resources.Load (Constants.PlayerSelectionMenu));
     }
-
+	void LoadLevelSelection()
+	{
+		Instantiate(Resources.Load(Constants.LevelSelectionMenu));
+		Destroy(gameObject);
+	}
     void ModeSelectionMenu()
     {
         if (GameObject.FindWithTag(Tags.MainMenu))

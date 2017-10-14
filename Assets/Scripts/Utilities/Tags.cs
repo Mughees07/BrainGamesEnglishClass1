@@ -52,7 +52,9 @@ public class Tags
 
 	public const string carTrigger = "CarTrigger";
 	public const string RickshawTrigger = "RickshawTrigger";
-
+	public const string LevelEndTrigger="LevelEndTrigger";
+	public const string Hurdle="Hurdle";
+	public const string HurdleTrigger="HurdleTrigger";
 
 	// Challenges
 	public const string TutorialManager = "TutorialManager";
