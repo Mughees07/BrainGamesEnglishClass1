@@ -31,9 +31,6 @@ public class TutorialManager : MonoBehaviour
         UserPrefs.Load();
 
 		NextTutorial (TutorialState.StoryStart);
-
-
-
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
     }
 
@@ -91,8 +88,6 @@ public class TutorialManager : MonoBehaviour
         TutorialTxt = TutorialPanels[Number].GetComponentInChildren<Text>();
 		StartCoroutine (ShowText (Constants.TutorialText[Number]));
 		//TutorialTxt.text = Constants.TutorialText[Number];
-
-        
 
         GAManager.Instance.LogDesignEvent("Tutorial:Step:" + Number);
 
