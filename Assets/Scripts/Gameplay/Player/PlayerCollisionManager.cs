@@ -41,9 +41,13 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 			if (Variables.boost) {
 
+				for (int i = 0; i < other.gameObject.transform.childCount; i++) {
+
+
+				}
 
 			} else {
-				Variables.currentHealth -= 20f;
+				Variables.currentHealth -= 20;
 				if (Variables.currentHealth <= 0)
 					ShowLevelFailPopup ();
 			}
