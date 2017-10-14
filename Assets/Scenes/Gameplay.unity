@@ -1711,6 +1711,7 @@ GameObject:
   - 50: {fileID: 86105953}
   - 114: {fileID: 86105952}
   - 82: {fileID: 86105951}
+  - 114: {fileID: 86105954}
   m_Layer: 8
   m_Name: Car
   m_TagString: Player
@@ -1863,6 +1864,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &86105954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86105949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c107834a1f5c41a4390ab8b23398b3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &86418000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2102,7 @@ GameObject:
   - 50: {fileID: 90258150}
   - 114: {fileID: 90258149}
   - 82: {fileID: 90258148}
+  - 114: {fileID: 90258151}
   m_Layer: 8
   m_Name: Rickshaw
   m_TagString: Player
@@ -2242,6 +2255,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &90258151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90258146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c107834a1f5c41a4390ab8b23398b3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &91684964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11803,7 +11827,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 689876695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.5, y: -4.5, z: 0}
+  m_LocalPosition: {x: 539, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -13508,7 +13532,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011387921342, guid: 8c472209eeef64069b706912b589aefd, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014259228242, guid: 8c472209eeef64069b706912b589aefd,
         type: 2}
@@ -16924,6 +16948,49 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1055737379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1055737380}
+  - 61: {fileID: 1055737381}
+  m_Layer: 0
+  m_Name: LevelEndTrigger
+  m_TagString: RickshawTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055737380
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055737379}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1422, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1852061434}
+  m_RootOrder: 2
+--- !u!61 &1055737381
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055737379}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.33, y: 13.27}
 --- !u!1 &1066564391
 GameObject:
   m_ObjectHideFlags: 0
@@ -20549,7 +20616,7 @@ GameObject:
   - 61: {fileID: 1300263276}
   m_Layer: 0
   m_Name: Change2
-  m_TagString: CarTrigger
+  m_TagString: RickshawTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20561,7 +20628,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1300263274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 986.5, y: -4.5, z: 0}
+  m_LocalPosition: {x: 1052, y: -4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -25241,8 +25308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   vehicleController: {fileID: 0}
+  vehicleSelector: {fileID: 0}
   tutorialManager: {fileID: 0}
   imageFade: {fileID: 0}
+  cameraControl: {fileID: 0}
 --- !u!4 &1644332012
 Transform:
   m_ObjectHideFlags: 0
@@ -25729,8 +25798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bus: {fileID: 560030034}
-  Rickshaw: {fileID: 86105949}
-  Car: {fileID: 90258146}
+  Rickshaw: {fileID: 90258146}
+  Car: {fileID: 86105949}
 --- !u!1 &1661933886
 GameObject:
   m_ObjectHideFlags: 0
@@ -28492,6 +28561,7 @@ Transform:
   m_Children:
   - {fileID: 689876696}
   - {fileID: 1300263275}
+  - {fileID: 1055737380}
   m_Father: {fileID: 2083251150}
   m_RootOrder: 2
 --- !u!4 &1853933423 stripped

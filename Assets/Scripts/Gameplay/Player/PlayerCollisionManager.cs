@@ -20,12 +20,14 @@ public class PlayerCollisionManager : MonoBehaviour {
 		if (other.gameObject.tag.Equals (Tags.carTrigger)) {
 
 
+			References.Instance.vehicleSelector.SelectCar ();
 
 			Debug.Log ("Car Trigger");
 			
 
 		} else if (other.gameObject.tag.Equals (Tags.RickshawTrigger)) {
 		
+			References.Instance.vehicleSelector.SelectRickshaw ();
 			Debug.Log ("Rickshaw Trigger");
 		
 		}

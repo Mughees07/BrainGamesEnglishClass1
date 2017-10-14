@@ -56,7 +56,10 @@ public class TutorialManager : MonoBehaviour
 			References.Instance.imageFade.FadeIn ();
 		
 		if (Number == 0) {
-			TutorialPanels [Number].SetActive (false);
+			{
+				TutorialPanels [Number].SetActive (false);
+				References.Instance.vehicleSelector.SelectBus ();
+			}
 
 			yield return new WaitForSeconds (1f);
 
