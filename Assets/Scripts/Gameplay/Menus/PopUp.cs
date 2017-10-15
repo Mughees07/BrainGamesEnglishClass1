@@ -9,6 +9,8 @@ public class PopUp : MonoBehaviour
     public bool isSettingPanel;
     public GameObject Music, Sound;
     public Sprite MusicEnable, MusicDisable, SoundEnable, SoundDisable;
+
+	public Text Score,Coins;
     // End Setting Panel
 
 
@@ -16,7 +18,10 @@ public class PopUp : MonoBehaviour
     {
         if (gameObject.CompareTag(Tags.LevelComplete))
         {
-            GameObject.FindGameObjectWithTag(Tags.LevelManager).GetComponent<StarsManager>().ShowStars();
+            //GameObject.FindGameObjectWithTag(Tags.LevelManager).GetComponent<StarsManager>().ShowStars();
+
+			Score.text = Variables.points.ToString ();
+			Coins.text=  Variables.Coins.ToString ();
         }
 
         if (isSettingPanel)

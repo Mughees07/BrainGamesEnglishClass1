@@ -7,13 +7,17 @@ public class References : SingletonForScripts<References> {
 	public SimpleControlVehicle vehicleController;
 	public VehicleSelector vehicleSelector;
 	public TutorialManager tutorialManager;
-	public ImageFade imageFade;
+	public ImageFader imageFade;
 	public CameraControl cameraControl;
 
 
 	public GameObject raceButton;
 	public GameObject boostButton;
+
+
 	public Image HealthBar;
+	public Text coins;
+	public Text score;
 
 
 	// Use this for initialization

@@ -181,6 +181,12 @@ public class SimpleControlVehicle : MonoBehaviour {
 
 	public void boost()
 	{
+		if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.BoostAttack) {			
+			References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = false;
+			References.Instance.tutorialManager.HideTutorialPanels ();
+			References.Instance.tutorialManager.NextTutorial (References.Instance.tutorialManager._currentTutorialState);
+		}
+		//SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERATTACKSOUND);
 		Variables.boost = true;
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (acceleration * 100, 2), ForceMode2D.Impulse);
 	}

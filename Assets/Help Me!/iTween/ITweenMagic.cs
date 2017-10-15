@@ -145,7 +145,7 @@ public class ITweenMagic : MonoBehaviour {
 			}		
 		}
 
-		Destroy(gameObject);
+
 
 	}
 

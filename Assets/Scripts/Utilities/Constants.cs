@@ -157,9 +157,9 @@ public class Constants
 
     // Menu IDs
     public const int Intro = 0;
-    public const int MainMenu = 1;
+    public const int MainMenu = 0;
     public const int CutScene = 2;
-    public const int GamePlay = 2;
+    public const int GamePlay = 1;
     public const int secondEnvironment = 4;
 
 
@@ -193,14 +193,14 @@ public class Constants
         "Princess is captured inside this castle. Fight with these gaint Bosses patrolling on door."//Level24
     };
     public static string[] TutorialText = new string[]
-    {"Use the Joystick to move",
-        "Swipe left/right to move the Camera",
-        "Use Combo and Mega Attack buttons to execute different combinations of attacks",
-        "Go near emeny and use Attack button to attack",
-        "Press and Hold Block button to defend against the attacks",
-        "Use Combo Attack to kill your enemies in one shot.",
-        "Keep an eye on your health.",
-        "Use Pause button to pause the game"
+	{
+		"Today is Shab-e-Barat.Mrs Shahid is very happy.She is waiting for the bus.",
+        "Tap and Hold to Accelerate",
+        "Boost to destroy Hurdles",
+		"BANG!The tyre is flat.Mrs Shahid is sitting in the taxi.",
+		"OH! Taxi is out of fuel.Mrs Shahid is sitting in rickshaw.",
+		"Mrs Shahid is very happy.\nShe is at her sister's house.",   
+        
     };
     public static string[] StoryLine = new string[]
     {

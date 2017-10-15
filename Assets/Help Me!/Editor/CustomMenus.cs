@@ -110,14 +110,14 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
 			if(value)
 			{
-				EditorSceneManager.OpenScene(CustomMenus.Path1/*"Assets/Scenes/IntroVideo.unity"*/);
+				EditorSceneManager.OpenScene(CustomMenus.Path2/*"Assets/Scenes/IntroVideo.unity"*/);
 				EditorApplication.ExecuteMenuItem("Edit/Play");
 			}
 			#else
 			bool value=EditorApplication.SaveCurrentSceneIfUserWantsTo();
 			if(value)
 			{
-				EditorApplication.OpenScene(CustomMenus.Path1);
+				EditorApplication.OpenScene(CustomMenus.Path2);
 			EditorApplication.ExecuteMenuItem("Edit/Play");
 			}
 			#endif

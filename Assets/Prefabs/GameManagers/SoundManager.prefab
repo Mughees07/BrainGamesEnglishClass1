@@ -636,9 +636,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpSound: {fileID: 8300000, guid: 01f4a395d3cf144a584b83287a8c8b75, type: 3}
-  buttonClickSound: {fileID: 8300000, guid: 0578b86159e8b45908cafd018897aa26, type: 3}
-  menuBGSound: {fileID: 8300000, guid: f320d8fd953bd4ecd85279fd7dfce20c, type: 3}
-  gamePlayBGSound: {fileID: 8300000, guid: f320d8fd953bd4ecd85279fd7dfce20c, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 177283bc163926242a71d3f26ca8f394, type: 3}
+  menuBGSound: {fileID: 8300000, guid: 7a04408fabccbbe4f85b7c0270a49c25, type: 3}
+  gamePlayBGSound: {fileID: 8300000, guid: 4a0ca1e6e1353f941bb9cdcdc22fa7fc, type: 3}
   levelCompleteSound: {fileID: 8300000, guid: a796b6bf9582347eba4ea3ce43f9edf0, type: 3}
   levelFailSound: {fileID: 8300000, guid: 3844bc580f5a541cf86507648e238ed7, type: 3}
   upgradeSound: {fileID: 8300000, guid: 05995e94c905b4e2a8d8b0de3d71a5dc, type: 3}
@@ -648,14 +648,14 @@ MonoBehaviour:
   rainSound: {fileID: 0}
   fallingRockSound: {fileID: 8300000, guid: 2d1aec34532ae4c50b6e3c23d9781e58, type: 3}
   playerRunSound: {fileID: 8300000, guid: dacc785fe21754f3ba9d9409a7279212, type: 3}
-  playerAttackSound: {fileID: 8300000, guid: cdc9767c7c35e4786b4799597f109b92, type: 3}
+  playerAttackSound: {fileID: 8300000, guid: 0578b86159e8b45908cafd018897aa26, type: 3}
   playerEatSound: {fileID: 8300000, guid: a974b0c6ed3584e5d8a84b54600a3648, type: 3}
   hitSound: {fileID: 8300000, guid: eb4ac55725ce44593a6b6b65d74ce998, type: 3}
-  playerHitSound: {fileID: 8300000, guid: cdc9767c7c35e4786b4799597f109b92, type: 3}
+  playerHitSound: {fileID: 8300000, guid: ce6261748b260ee4cb9c08d439593718, type: 3}
   playerLastAttackSound: {fileID: 8300000, guid: 8fd37ed9690874ff48cbcc0d79abb5d1,
     type: 3}
   gorillaRoar: {fileID: 8300000, guid: 66ce3d840c40648cdbee941d7e89a8ce, type: 3}
-  thud: {fileID: 8300000, guid: 2a4dd84b47a544292864a1fda7b4b970, type: 3}
+  thud: {fileID: 8300000, guid: 85a560993a75eb643afff1665b8618dd, type: 3}
   man: {fileID: 8300000, guid: 9ffd58e4f42af46dc980a6eebf70842a, type: 3}
   boy: {fileID: 8300000, guid: 9ffd58e4f42af46dc980a6eebf70842a, type: 3}
   girl: {fileID: 8300000, guid: 9d03e1bcb5a8843a6885622c1fde47fd, type: 3}
@@ -672,7 +672,7 @@ MonoBehaviour:
   rocketLaunch: {fileID: 8300000, guid: 4c0b873e894cd474faabccb1c1810be4, type: 3}
   treeFall: {fileID: 8300000, guid: 66467c452ab0d4a9d87d59f54f974125, type: 3}
   poleFall: {fileID: 8300000, guid: a182e7264302f483c98bd231ea865c00, type: 3}
-  carHit: {fileID: 8300000, guid: a182e7264302f483c98bd231ea865c00, type: 3}
+  carHit: {fileID: 8300000, guid: 85a560993a75eb643afff1665b8618dd, type: 3}
   carHit2: {fileID: 8300000, guid: cd9058a19f57c4ea2bfc579435096451, type: 3}
   challengeArea: {fileID: 8300000, guid: 90b9a652ab54a419bba5791479de4a0c, type: 3}
   punch: {fileID: 8300000, guid: 56c2ee139e8c844ba9a3a17370e3b763, type: 3}

@@ -30,55 +30,77 @@ public class TutorialManager : MonoBehaviour
     {
         UserPrefs.Load();
 
-		NextTutorial (TutorialState.StoryStart);
+		ShowTutorial (TutorialState.StoryStart);
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
     }
 
-    public void HideTutorialPanel()
+    public void HideTutorialPanels()
     {
+		foreach (GameObject g in TutorialPanels)
+			g.SetActive(false);
     }
 
 	IEnumerator ShowText(string desc)
 	{
+		Debug.Log ("StateShowText:" + _currentTutorialState);
+		
 		for(int i = 0; i <=desc.Length ; i++)
 		{ 
 			TutorialTxt.text = desc.Substring (0,i);
 			yield return new WaitForSeconds(delay);
 		}
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds(2f);
+
+
+
 		if (_currentTutorialState == TutorialState.StoryStart ||
 			_currentTutorialState == TutorialState.StoryEnd ||
 			_currentTutorialState == TutorialState.SwitchToCar ||
 			_currentTutorialState == TutorialState.SwitchToRickshaw)
-			References.Instance.imageFade.FadeIn ();
-		
+			References.Instance.imageFade.enabled = true;
+
+		yield return new WaitForSeconds(1f);
+
 		if (Number == 0) {
 			{
 				TutorialPanels [Number].SetActive (false);
 				References.Instance.vehicleSelector.SelectBus ();
 			}
 
-			yield return new WaitForSeconds (1f);
+		if (_currentTutorialState == TutorialState.StoryStart) {
+			NextTutorial (_currentTutorialState);
+			ShowTutorial (_currentTutorialState);
+		}
+		if (_currentTutorialState == TutorialState.RaceButton) {
+				NextTutorial (_currentTutorialState);
+			} 		
 
+		else if (_currentTutorialState == TutorialState.SwitchToCar) {
+			References.Instance.vehicleSelector.SelectCar ();
+			NextTutorial (_currentTutorialState);
+		}else 	if (_currentTutorialState == TutorialState.SwitchToRickshaw) {
+				References.Instance.vehicleSelector.SelectRickshaw ();
+				NextTutorial (_currentTutorialState);
+		}else 	if (_currentTutorialState == TutorialState.StoryEnd)
+			References.Instance.player.GetComponent<PlayerCollisionManager> ().ShowLevelCompletePopup ();
 
-			
+			yield return new WaitForSeconds (1f);			
 			if (_currentTutorialState == TutorialState.StoryStart)
-				NextTutorial (TutorialState.StoryStart);
+				ShowTutorial (TutorialState.RaceButton);
 		}
 	}
 
-
+	int tutorialCount;
     void showText()
     {
+		Debug.Log ("StateShow:" + _currentTutorialState);
         foreach (GameObject g in TutorialPanels)
             g.SetActive(false);
 
 		if (_currentTutorialState.Equals(TutorialState.HealthBar))
-			Number=3;
-		
+			Number=3;		
 		else if (_currentTutorialState.Equals(TutorialState.BoostAttack))
-			Number=2;
-		
+			Number=2;		
 		else if (_currentTutorialState.Equals(TutorialState.RaceButton))
 			Number=1;		
 		else 
@@ -86,9 +108,11 @@ public class TutorialManager : MonoBehaviour
 
         TutorialPanels[Number].SetActive(true);
         TutorialTxt = TutorialPanels[Number].GetComponentInChildren<Text>();
-		StartCoroutine (ShowText (Constants.TutorialText[Number]));
-		//TutorialTxt.text = Constants.TutorialText[Number];
 
+		if (_currentTutorialState == TutorialState.BoostAttack)
+			TutorialTxt.text = Constants.TutorialText[tutorialCount++];
+		else
+			StartCoroutine (ShowText (Constants.TutorialText[tutorialCount++]));
         GAManager.Instance.LogDesignEvent("Tutorial:Step:" + Number);
 
 //        switch (_currentTutorialState)
@@ -119,54 +143,70 @@ public class TutorialManager : MonoBehaviour
 
     }
 
-    public void NextTutorial(TutorialState _current)
-    {
-        switch (_current)
-        {
+
+	public void NextTutorial(TutorialState _current)
+	{
+		Debug.Log ("State:" + _currentTutorialState);
+		switch (_current)
+		{
 
 		case TutorialState.StoryStart: 
-             
-			showText();
-			_currentTutorialState = TutorialState.RaceButton; 
+			_currentTutorialState = TutorialState.RaceButton;
+			break;
 
-                break;
-          
-		case TutorialState.RaceButton:  				
-			UserPrefs.isTutorialFinished = false;
-			_currentTutorialState = TutorialState.BoostAttack;
-			showText();
-             break;
+		case TutorialState.RaceButton:  
+			_currentTutorialState = TutorialState.BoostAttack;		
+			break;
 
 		case TutorialState.BoostAttack: 
-  	
-
-			_currentTutorialState = TutorialState.HealthBar;
-			showText();
-                break;
-
-		case TutorialState.HealthBar: 
-
-
 			_currentTutorialState = TutorialState.SwitchToCar;
-			showText();
-                break;
+			break;		
 
 		case TutorialState.SwitchToCar:
-
-			showText();
 			_currentTutorialState = TutorialState.SwitchToRickshaw;
 			break;
 
 		case TutorialState.SwitchToRickshaw:
-
-			showText();
-			_currentTutorialState = TutorialState.StoryEnd;           
+			_currentTutorialState = TutorialState.StoryEnd;	        
 			break;
 
 		case TutorialState.StoryEnd:
-
-			showText();
 			_currentTutorialState = TutorialState.StoryStart;
+			break;
+		}
+	}
+
+    public void ShowTutorial(TutorialState _current)
+    {
+		Debug.Log ("State:" + _currentTutorialState);
+        switch (_current)
+        {
+
+		case TutorialState.StoryStart: 
+			showText();
+            break;
+          
+		case TutorialState.RaceButton:  
+			showText();
+			UserPrefs.isTutorialFinished = false;
+            break;
+
+		case TutorialState.BoostAttack: 
+				showText();
+                break;
+
+	
+
+		case TutorialState.SwitchToCar:
+			showText();
+			break;
+
+		case TutorialState.SwitchToRickshaw:
+			showText();			        
+			break;
+
+		case TutorialState.StoryEnd:
+			showText();
 			break;
         }
     }
