@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerCollisionManager : MonoBehaviour {
 
@@ -18,10 +19,12 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-
+		other.enabled = false;
 		if (other.gameObject.tag.Equals (Tags.carTrigger)) {
 
-			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.SwitchToCar) {	
+			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.SwitchToCar) {
+				References.Instance.vehicleController.accelerate = false;
+				References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
 				References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
 				References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
 			}
@@ -34,6 +37,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 		} else if (other.gameObject.tag.Equals (Tags.RickshawTrigger)) {
 		
 			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.SwitchToRickshaw) {	
+			References.Instance.vehicleController.accelerate = false;
+			References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
 			References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
 			References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
 			//References.Instance.vehicleSelector.SelectRickshaw ();
@@ -41,53 +46,77 @@ public class PlayerCollisionManager : MonoBehaviour {
 			Debug.Log ("Rickshaw Trigger");
 		
 		} else if (other.gameObject.tag.Equals (Tags.LevelEndTrigger)) {
-			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.StoryEnd) {	
+			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.StoryEnd) {
+				References.Instance.vehicleController.accelerate = false;	
+				References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
 				References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
+
 				References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
 			}
 	
 
 		} else if (other.gameObject.tag.Equals (Tags.HurdleTrigger)) {
 			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.BoostAttack) {
+				References.Instance.boostButton.SetActive(true);
+				References.Instance.raceButton.SetActive(false);
+				References.Instance.vehicleController.accelerate = false;
 				References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
+				References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
+
 				References.Instance.tutorialManager.ShowTutorial (References.Instance.tutorialManager._currentTutorialState);
 			}
 
 			Debug.Log ("Hurdle Trigger");
-			References.Instance.boostButton.SetActive (true);
+			References.Instance.boostButton.GetComponent<Button> ().interactable = true;
+			//References.Instance.boostButton.SetActive (true);
 
 		}	else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
 			Debug.Log ("Hurdle");
-			if (Variables.boost) {
-				SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);
-				for (int i = 0; i < other.gameObject.transform.childCount; i++) {
-
-					other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();
-					other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddForce(new Vector2(Random.Range(20f,30f),Random.Range(5f,10f)),ForceMode2D.Impulse);
-					other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddTorque(Random.Range(0f,180));
-				}
+			if (Variables.boost) {				
+				clearHurdle (other);
+				References.Instance.vehicleController.accelerate = false;
 				Variables.points += 20;
 				Variables.Coins += 1;
 			} else {
 				Variables.currentHealth -= 20;
-				References.Instance.HealthBar.fillAmount -= 0.2f;
-				if (Variables.currentHealth <= 0)
-					ShowLevelFailPopup ();
-				else
-					StartCoroutine (Blink ());
+				References.Instance.HealthBar.fillAmount = ((float)Variables.currentHealth/100f);
+
+				StartCoroutine (Blink (other));
 			}
 
 			Variables.boost = false;
-			References.Instance.boostButton.SetActive (false);
-			other.enabled = false;
+			References.Instance.boostButton.GetComponent<Button> ().interactable = false;
+			//References.Instance.boostButton.SetActive (false);
+
 		}
 
 
 	}
-
-	public IEnumerator Blink()
+	public void clearHurdle(Collider2D other)
 	{
-		
+		SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);
+		for (int i = 0; i < other.gameObject.transform.childCount; i++) {
+
+			other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();
+			other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddForce(new Vector2(Random.Range(20f,30f),Random.Range(5f,10f)),ForceMode2D.Impulse);
+			other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddTorque(Random.Range(0f,180));
+		}
+	}
+	public void clearHurdleEase(Collider2D other)
+	{
+		SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);
+		for (int i = 0; i < other.gameObject.transform.childCount; i++) {
+
+			other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();
+			other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddForce(new Vector2(Random.Range(5f,10f),Random.Range(1f,3f)),ForceMode2D.Impulse);
+			other.gameObject.transform.GetChild (i).gameObject.GetComponent<Rigidbody2D> ().AddTorque(Random.Range(0f,180));
+		}
+	}
+
+	public IEnumerator Blink(Collider2D other)
+	{
+		References.Instance.vehicleController.accelerate = false;
+		References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
 		for(int i=0;i<3;i++)
 		{
 			References.Instance.player.transform.GetChild (0).gameObject.SetActive (false);
@@ -95,7 +124,11 @@ public class PlayerCollisionManager : MonoBehaviour {
 			References.Instance.player.transform.GetChild (0).gameObject.SetActive (true);
 			yield return new WaitForSeconds (0.3f);
 		}
-			
+		if (Variables.currentHealth <= 0)
+			ShowLevelFailPopup ();
+		else
+		References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = false;
+		clearHurdleEase (other);	
 	}
 
 	public void ShowLevelCompletePopup()

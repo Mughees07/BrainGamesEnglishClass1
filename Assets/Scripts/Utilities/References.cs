@@ -10,14 +10,17 @@ public class References : SingletonForScripts<References> {
 	public ImageFader imageFade;
 	public CameraControl cameraControl;
 
-
 	public GameObject raceButton;
 	public GameObject boostButton;
-
 
 	public Image HealthBar;
 	public Text coins;
 	public Text score;
+
+
+
+
+
 
 
 	// Use this for initialization
@@ -25,7 +28,6 @@ public class References : SingletonForScripts<References> {
 		//player=GameObject.FindGameObjectWithTag ("Player");
 		//vehicleController = player.GetComponent<SimpleControlVehicle> ();
 		tutorialManager = FindObjectOfType<TutorialManager> ();
-
 		vehicleSelector = FindObjectOfType<VehicleSelector> ();
 		cameraControl = FindObjectOfType<CameraControl> ();
 	}

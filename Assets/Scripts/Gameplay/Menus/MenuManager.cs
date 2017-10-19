@@ -65,6 +65,10 @@ public class MenuManager : MonoBehaviour
                 Application.OpenURL(Constants.MoreGames_LINK);
                 GAManager.Instance.LogDesignEvent("MainMenu:MoreGames");
                 break;
+			case "Exit":
+				Application.Quit ();
+			//GAManager.Instance.LogDesignEvent("MainMenu:MoreGames");
+				break;
 
         }	
     }

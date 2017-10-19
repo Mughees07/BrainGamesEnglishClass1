@@ -128,7 +128,6 @@ GameObject:
   - 114: {fileID: 11409634}
   - 114: {fileID: 11465088}
   - 114: {fileID: 11488900}
-  - 114: {fileID: 11458562}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: MainMenu
@@ -147,8 +146,7 @@ GameObject:
   - 222: {fileID: 22286294}
   - 114: {fileID: 11424026}
   - 114: {fileID: 11428416}
-  - 95: {fileID: 9559504}
-  - 114: {fileID: 11429262}
+  - 114: {fileID: 114000011049235244}
   m_Layer: 5
   m_Name: btn_PlayMM
   m_TagString: Untagged
@@ -200,9 +198,8 @@ GameObject:
   - 222: {fileID: 22241060}
   - 114: {fileID: 11440966}
   - 114: {fileID: 11418732}
-  - 114: {fileID: 11450024}
   m_Layer: 5
-  m_Name: btn_Twitter
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,9 +266,8 @@ GameObject:
   - 222: {fileID: 22247950}
   - 114: {fileID: 11452904}
   - 114: {fileID: 11464630}
-  - 114: {fileID: 11467626}
   m_Layer: 5
-  m_Name: btn_Facebook
+  m_Name: RateUs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,7 +284,6 @@ GameObject:
   - 222: {fileID: 22250510}
   - 114: {fileID: 11473886}
   - 114: {fileID: 11431280}
-  - 114: {fileID: 11426834}
   m_Layer: 5
   m_Name: btn_Settings
   m_TagString: Untagged
@@ -296,23 +291,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &9559504
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154604}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5da4e5f28bba04ceca4309fa2f073ed8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11403584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,7 +413,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Twitter
+          m_StringArgument: Exit
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -467,26 +445,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
---- !u!114 &11426834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c469d1689a24da3a2fe55010e0eccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.1
-  EaseType: 17
-  time: 1
-  X: 0
-  Y: 0
-  Z: 5
-  currentFunctionType: 1
-  currentLoopType: 1
-  rotation: 0
 --- !u!114 &11428416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,26 +497,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11429262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c469d1689a24da3a2fe55010e0eccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  EaseType: 22
-  time: 0.1
-  X: 1.5
-  Y: 1.5
-  Z: 1
-  currentFunctionType: 2
-  currentLoopType: 0
-  rotation: 0
 --- !u!114 &11431280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,26 +603,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11450024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c469d1689a24da3a2fe55010e0eccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.5
-  EaseType: 17
-  time: 1
-  X: 0
-  Y: 0
-  Z: 5
-  currentFunctionType: 1
-  currentLoopType: 1
-  rotation: 0
 --- !u!114 &11452904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -712,17 +630,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11458562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d87fdef75b340ef83813c635ba31a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11462034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -822,7 +729,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Facebook
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -897,26 +804,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11467626
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 192296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c469d1689a24da3a2fe55010e0eccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.3
-  EaseType: 17
-  time: 1
-  X: 0
-  Y: 0
-  Z: 5
-  currentFunctionType: 1
-  currentLoopType: 1
-  rotation: 0
 --- !u!114 &11473886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1462,3 +1349,38 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142584}
   m_IsPrefabParent: 1
+--- !u!114 &114000011049235244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00458f4e02fa47ee8aabc63811b9fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ITweenSpace: 1
+  EaseTypeMovement: 0
+  EaseTypeRotation: 0
+  EaseTypeScale: 0
+  timeMovement: 1
+  timeRotation: 1
+  timeScale: 1
+  delayMovement: 0
+  delayRotation: 0
+  delayScale: 0
+  LoopTypeMovement: 0
+  LoopTypeRotation: 0
+  LoopTypeScale: 1
+  Movement: 0
+  Rotation: 0
+  Scale: 1
+  initialPosition3D: {x: 0, y: 0, z: 0}
+  targetPosition3D: {x: 0, y: 0, z: 0}
+  initialPosition2D: {x: 0, y: 0}
+  targetPosition2D: {x: 0, y: 0}
+  initialRotation: {x: 0, y: 0, z: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
+  initialScale: {x: 1, y: 1, z: 1}
+  targetScale: {x: 1.2, y: 1.2, z: 1.2}

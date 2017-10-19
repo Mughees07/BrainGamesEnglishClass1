@@ -108,7 +108,7 @@ public class LevelSelectionMenu : MonoBehaviour
         switch (ID)
         {
             case "Back": 
-                Instantiate(Resources.Load(Constants.ModeSelectionMenu));
+			Instantiate(Resources.Load(Constants.MainMenuUI));
                 Time.timeScale = 1;
                 Destroy(gameObject);
                 break;
@@ -119,7 +119,7 @@ public class LevelSelectionMenu : MonoBehaviour
     public void BackButton()
     {
 
-        if (GameObject.FindWithTag(Tags.levelSelectionMenu) && !GameObject.FindWithTag(Tags.LockedLevelScriptCoinVideo) && !GameObject.FindWithTag(Tags.NoMoreAd))
+        if (GameObject.FindWithTag(Tags.levelSelectionMenu))
         {
             OnButtonPress("Back");
         }

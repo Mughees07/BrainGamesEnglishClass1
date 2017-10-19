@@ -373,7 +373,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 3bd2b3008a8eb374fbb4793623537215,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: b28bd0d48622b46998198f2eb2990664, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 3bd2b3008a8eb374fbb4793623537215, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -788,6 +788,8 @@ MonoBehaviour:
   MusicDisable: {fileID: 21300000, guid: c27efa626777f46d19d54a720968a0e0, type: 3}
   SoundEnable: {fileID: 21300000, guid: ffc16e0c001964ce78ea40f173d44fa7, type: 3}
   SoundDisable: {fileID: 21300000, guid: c9df39b8f7f0e471da10f9d1957cf35f, type: 3}
+  Score: {fileID: 0}
+  Coins: {fileID: 0}
 --- !u!114 &11476110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1012,8 +1014,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168, y: -65}
-  m_SizeDelta: {x: 280, y: 100}
+  m_AnchoredPosition: {x: 164.5, y: -65}
+  m_SizeDelta: {x: 102, y: 100}
   m_Pivot: {x: 0.50000006, y: 0.5000002}
 --- !u!224 &22432930
 RectTransform:
@@ -1030,8 +1032,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: -64}
-  m_SizeDelta: {x: 280, y: 100}
+  m_AnchoredPosition: {x: 23, y: -65}
+  m_SizeDelta: {x: 99, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22442470
 RectTransform:
@@ -1185,8 +1187,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122, y: -65}
-  m_SizeDelta: {x: 280, y: 100}
+  m_AnchoredPosition: {x: -123, y: -66.5}
+  m_SizeDelta: {x: 107, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22495986
 RectTransform:

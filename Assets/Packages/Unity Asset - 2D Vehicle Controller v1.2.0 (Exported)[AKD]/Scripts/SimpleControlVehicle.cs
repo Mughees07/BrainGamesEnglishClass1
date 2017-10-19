@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -24,8 +25,9 @@ public class Transmission_Options
 public class SimpleControlVehicle : MonoBehaviour {
 
 
-	public float maxSpeed = 30.0f; // Maximum vehicle speed.
-	public float acceleration = 0.15f; // Vehicle acceleration amount.
+	public float maxSpeed = 10.0f; // Maximum vehicle speed.
+	public float maxAcceleration = 1.0f; // Maximum vehicle speed.
+	public float acceleration = 0.05f; // Vehicle acceleration amount.
 	public float breakForce = 0.1f; // Amount of vehicle braking force.
 	public bool reverse = true; // Allow the reverse on the vehicle.
 	public float reverseMaxSpeed = 5.0f; // Maximum reverse speed of the vehicle. 
@@ -155,9 +157,15 @@ public class SimpleControlVehicle : MonoBehaviour {
 	public void UpdateEngineSound(){
 		// Set the pitchModifier a valor that help to increase the pitch audio
 		// without exceed the minimum and maximum pitch valor.
-		pitchModifier = maxPitch - minPitch;
+		if (accelerate) {
+			if(!GetComponent<AudioSource> ().enabled)
+				GetComponent<AudioSource> ().enabled = true;
+			pitchModifier = maxPitch - minPitch;		
+			GetComponent<AudioSource> ().pitch = minPitch + (GetComponent<Rigidbody2D> ().velocity.x / maxSpeed) * pitchModifier;
+		} else {
+			GetComponent<AudioSource> ().enabled = false;
+		}
 		// Set the valor of the pitch audio proportional to the actual velocity.
-		GetComponent<AudioSource>().pitch = minPitch + (GetComponent<Rigidbody2D>().velocity.x / maxSpeed) * pitchModifier;
 	}
 
 	// Verify if one wheel is on the ground. If any wheel is on the ground set grounded to true.
@@ -185,24 +193,36 @@ public class SimpleControlVehicle : MonoBehaviour {
 			References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = false;
 			References.Instance.tutorialManager.HideTutorialPanels ();
 			References.Instance.tutorialManager.NextTutorial (References.Instance.tutorialManager._currentTutorialState);
+			References.Instance.raceButton.SetActive(true);
 		}
 		//SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERATTACKSOUND);
+
 		Variables.boost = true;
-		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (acceleration * 100, 2), ForceMode2D.Impulse);
+		accelerate = false;
+		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (10, 2), ForceMode2D.Impulse);
+		Invoke("disableBoost",2f);
+	}
+
+	public void disableBoost()
+	{
+		Variables.boost = false;
 	}
 	// Assign the velocity to the regidbody2D of the vehicle.
 	public void AccelerateVehicle(){
 		// Verify if the user want to move to the right and if the vehicle is on the ground.
 		//if(horizontal > 0 && grounded){
-			if(accelerate && grounded){
+		if (accelerate && grounded) {
 			// Add velocity to the rigidbody by the actual velocity plus the acceleration.
-			GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + acceleration, GetComponent<Rigidbody2D>().velocity.y);
+
 
 			// Verify if the velocity added exceed the maximum speed of the vehicle.
-			if(GetComponent<Rigidbody2D>().velocity.x >= maxSpeed)
+			if (GetComponent<Rigidbody2D> ().velocity.x >= maxSpeed)
 				// Set the velocity to the maximum speed.
-				GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (maxSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+			else {
+				GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + acceleration, GetComponent<Rigidbody2D>().velocity.y);
 			}
+		}
 		// Verify if the user want to move to the left and if the vehicle is on the ground.
 //		else if(horizontal < 0 && grounded)
 //		{
