@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
 	public GameObject Sister;
     void Start()
     {
-        UserPrefs.Load();
+        //UserPrefs.Load();
 
 		ShowTutorial (TutorialState.StoryStart);
 		Debug.Log("tutorial status : " + UserPrefs.isTutorialFinished);
@@ -63,6 +63,8 @@ public class TutorialManager : MonoBehaviour
 		{ 
 			TutorialTxt.text = desc.Substring (0,i);
 			yield return new WaitForSeconds(delay);
+			if(i%3==0)
+				SoundManager.Instance.PlaySound(GameManager.SoundState.TYPESOUND);
 		}
 		yield return new WaitForSeconds(2f);
 
@@ -210,7 +212,6 @@ public class TutorialManager : MonoBehaviour
           
 		case TutorialState.RaceButton:  
 			showText();
-			UserPrefs.isTutorialFinished = false;
             break;
 
 		case TutorialState.BoostAttack: 			

@@ -7,6 +7,8 @@ public class SoundManager : SingeltonBase<SoundManager>
     public AudioClip levelUpSound;
     // Done
     public AudioClip buttonClickSound;
+
+	public AudioClip typeSound;
     // with menus
     public AudioClip menuBGSound;
     // Done
@@ -200,6 +202,10 @@ public class SoundManager : SingeltonBase<SoundManager>
             case GameManager.SoundState.UNMUTEMUSIC:
                 this.UnMuteMusic();
                 break;
+
+			case GameManager.SoundState.TYPESOUND:
+			gamePlayEffectsSource.PlayOneShot(typeSound);
+			break;
 
             case GameManager.SoundState.LEVELUPSOUND:
                 gamePlayEffectsSource.PlayOneShot(levelUpSound);

@@ -95,6 +95,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 	public void clearHurdle(Collider2D other)
 	{
 		SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);
+		GetComponent<PlayerEffectController> ().ShowHit1Effect (other.transform.position);
 		for (int i = 0; i < other.gameObject.transform.childCount; i++) {
 
 			other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();
@@ -105,6 +106,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 	public void clearHurdleEase(Collider2D other)
 	{
 		SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);
+		GetComponent<PlayerEffectController> ().ShowHit2Effect (other.transform.position);
 		for (int i = 0; i < other.gameObject.transform.childCount; i++) {
 
 			other.gameObject.transform.GetChild (i).gameObject.AddComponent<Rigidbody2D> ();

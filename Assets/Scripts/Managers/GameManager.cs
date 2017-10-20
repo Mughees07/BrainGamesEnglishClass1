@@ -35,7 +35,7 @@ public class GameManager : SingeltonBase<GameManager>
         LEVELCOMPLETIONSOUND,
         LEVELUPSOUND,
         LASTATTACKSOUND,
-
+		TYPESOUND,
         STINGBOMBSOUND,
         PREYEATSOUND,
         PLAYERATTACKSOUND,
@@ -76,6 +76,7 @@ public class GameManager : SingeltonBase<GameManager>
         THUNDERMAN_COMPLETION_SOUND,
         FALLING_ROCK_SOUND,
         DOOR_OPENING_SOUND,
+
         NONE}
 
     ;

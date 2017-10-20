@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: CustomMenuDatabase
   m_EditorClassIdentifier: 
   _inputValues:
-    ScenePath1: Assets/Scenes/IntroVideo.unity
+    ScenePath1: Assets/Scenes/CutScene.unity
     ScenePath2: Assets/Scenes/MainMenu.unity
     ScenePath3: Assets/Scenes/Gameplay.unity
     PrefabSavePath: Assets/

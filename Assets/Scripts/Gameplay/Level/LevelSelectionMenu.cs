@@ -59,7 +59,11 @@ public class LevelSelectionMenu : MonoBehaviour
 //			if (Constants.selectedLevel == 0)
 //				GameManager.Instance.LoadLoadingScreen (Constants.CutScene);
 //            if ((LevelID >= 0 && LevelID < 4) || (LevelID >= 8 && LevelID < 12) || (LevelID >= 16 && LevelID < 20))
-            GameManager.Instance.LoadLoadingScreen(Constants.GamePlay);
+			if(!UserPrefs.isTutorialFinished)
+			GameManager.Instance.LoadLoadingScreen(Constants.CutScene);
+			else
+			GameManager.Instance.LoadLoadingScreen(Constants.GamePlay);
+
 //            else
 //                GameManager.Instance.LoadLoadingScreen(Constants.secondEnvironment);
 

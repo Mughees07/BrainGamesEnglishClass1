@@ -158,8 +158,8 @@ public class Constants
     // Menu IDs
     public const int Intro = 0;
     public const int MainMenu = 0;
-    public const int CutScene = 2;
-    public const int GamePlay = 1;
+    public const int CutScene = 1;
+    public const int GamePlay = 2;
     public const int secondEnvironment = 4;
 
 
@@ -194,7 +194,7 @@ public class Constants
     };
     public static string[] TutorialText = new string[]
 	{
-		"Today is Shab-e-Barat.Mrs Shahid is very happy.She is waiting for the bus.",
+		"Take Mrs Shahid to her Sister's house.Avoid Hurdles in the Way!",
         "Tap and Hold to Accelerate",
         "Boost to destroy Hurdles",
 		"BANG!The tyre is flat.Mrs Shahid is sitting in the taxi.",

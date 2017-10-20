@@ -194,6 +194,8 @@ public class SimpleControlVehicle : MonoBehaviour {
 			References.Instance.tutorialManager.HideTutorialPanels ();
 			References.Instance.tutorialManager.NextTutorial (References.Instance.tutorialManager._currentTutorialState);
 			References.Instance.raceButton.SetActive(true);
+			UserPrefs.isTutorialFinished = true;
+			UserPrefs.Save ();
 		}
 		//SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERATTACKSOUND);
 
