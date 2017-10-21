@@ -18,6 +18,7 @@ public class Tags
 	public const string NPC = "NPC";
 
 	public const string Coin = "Coin";
+	public const string TrafficTrigger = "TrafficeTrigger";
 	
 	/**********************************HUD**********************************/
 	// HUD

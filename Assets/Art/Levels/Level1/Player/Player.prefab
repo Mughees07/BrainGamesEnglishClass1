@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011240522338
 GameObject:
   m_ObjectHideFlags: 1
@@ -448,7 +448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010008947678
 Transform:
   m_ObjectHideFlags: 1
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitEffect1: {fileID: 100006, guid: b11f2a610bd9e6f48bfdd43607c9a849, type: 2}
   TyrePuncherEffect: {fileID: 0}
+  TyreFront: {fileID: 0}
   feulEffect: {fileID: 0}
   HitEffect2: {fileID: 100006, guid: d22808fb4d0b046408929feef1bd0a15, type: 2}
   CoinEffect: {fileID: 100008, guid: d03e40269f00e54488a014adecac44a6, type: 2}
@@ -1343,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitEffect1: {fileID: 100006, guid: b11f2a610bd9e6f48bfdd43607c9a849, type: 2}
   TyrePuncherEffect: {fileID: 1000010801682106}
+  TyreFront: {fileID: 1000014287469484}
   feulEffect: {fileID: 0}
   HitEffect2: {fileID: 100006, guid: d22808fb4d0b046408929feef1bd0a15, type: 2}
   CoinEffect: {fileID: 100008, guid: d03e40269f00e54488a014adecac44a6, type: 2}
@@ -1548,6 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitEffect1: {fileID: 100006, guid: b11f2a610bd9e6f48bfdd43607c9a849, type: 2}
   TyrePuncherEffect: {fileID: 0}
+  TyreFront: {fileID: 0}
   feulEffect: {fileID: 0}
   HitEffect2: {fileID: 100006, guid: d22808fb4d0b046408929feef1bd0a15, type: 2}
   CoinEffect: {fileID: 100008, guid: d03e40269f00e54488a014adecac44a6, type: 2}

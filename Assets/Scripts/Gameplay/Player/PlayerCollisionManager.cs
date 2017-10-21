@@ -100,6 +100,10 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 			SetCoins (other.transform.position);
 
+		}else if (other.gameObject.tag.Equals (Tags.TrafficTrigger)) {
+
+			other.gameObject.transform.parent.GetChild (1).gameObject.SetActive (true);
+
 		}
 	}
 
