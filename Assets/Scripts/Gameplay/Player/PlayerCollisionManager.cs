@@ -87,9 +87,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 				References.Instance.vehicleController.accelerate = false;
 				SetScore ();
 			} else {
-				Variables.currentHealth -= 20;
-				References.Instance.HealthBar.fillAmount = ((float)Variables.currentHealth / 100f);
-
+				
+				SetHealth ();
 				StartCoroutine (Blink (other));
 			}
 
@@ -104,10 +103,16 @@ public class PlayerCollisionManager : MonoBehaviour {
 		}
 	}
 
+	public void SetHealth()
+	{
+		Variables.currentHealth -= 20;
+		StartCoroutine (FillBar (-0.1f,References.Instance.HealthBar.fillAmount,false));
+		//References.Instance.HealthBar.fillAmount = ;
+	}
+
 	public void SetScore()
 	{
 		Variables.points += 20;
-
 		References.Instance.score.text = Variables.points.ToString();
 
 	}
@@ -115,8 +120,31 @@ public class PlayerCollisionManager : MonoBehaviour {
 	public void SetCoins(Vector3 pos)
 	{
 		Variables.Coins += 1;
-		References.Instance.CoinsBar.fillAmount = (Variables.Coins % 10) / 10;
+		StartCoroutine (FillBar (0.1f,References.Instance.CoinsBar.fillAmount,true));
+		//References.Instance.CoinsBar.fillAmount = (float)(Variables.Coins % 10) / 10f;
 		GetComponent<PlayerEffectController> ().ShowCoinEffect (pos);
+	}
+
+	public IEnumerator FillBar(float val,float currentVal,bool isCoin)
+	{
+		float tempVal = currentVal;
+
+		if (isCoin) {			
+			if (currentVal == 1f)
+				tempVal = 0f;
+		}
+
+
+		for (int i = 0; i < 10; i++) {
+		
+			tempVal += val/10;
+			if(isCoin)
+			References.Instance.CoinsBar.fillAmount = tempVal;
+			else
+			References.Instance.HealthBar.fillAmount = tempVal;
+			
+			yield return new WaitForSeconds (0.05f);		
+		}
 	}
 
 
