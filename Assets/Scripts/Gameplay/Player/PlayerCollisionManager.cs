@@ -113,7 +113,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 	public void SetHealth()
 	{
 		Variables.currentHealth -= 20;
-		StartCoroutine (FillBar (-0.1f,References.Instance.HealthBar.fillAmount,false));
+		StartCoroutine (FillBar (-0.1f,References.Instance.HealthBar.fillAmount));
 		//References.Instance.HealthBar.fillAmount = ;
 	}
 
@@ -127,27 +127,19 @@ public class PlayerCollisionManager : MonoBehaviour {
 	public void SetCoins(Vector3 pos)
 	{
 		Variables.Coins += 1;
-		StartCoroutine (FillBar (0.1f,References.Instance.CoinsBar.fillAmount,true));
-		//References.Instance.CoinsBar.fillAmount = (float)(Variables.Coins % 10) / 10f;
+		References.Instance.Coins.text = Variables.Coins.ToString();
 		GetComponent<PlayerEffectController> ().ShowCoinEffect (pos);
 	}
 
-	public IEnumerator FillBar(float val,float currentVal,bool isCoin)
+	public IEnumerator FillBar(float val,float currentVal)
 	{
 		float tempVal = currentVal;
 
-		if (isCoin) {			
-			if (currentVal == 1f)
-				tempVal = 0f;
-		}
 
 
 		for (int i = 0; i < 10; i++) {
-		
+			
 			tempVal += val/10;
-			if(isCoin)
-			References.Instance.CoinsBar.fillAmount = tempVal;
-			else
 			References.Instance.HealthBar.fillAmount = tempVal;
 			
 			yield return new WaitForSeconds (0.05f);		

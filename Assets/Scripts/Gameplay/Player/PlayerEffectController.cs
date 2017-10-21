@@ -33,8 +33,9 @@ public class PlayerEffectController : MonoBehaviour {
 
 	public void ShowTyreFlatEffect()
 	{
-		TyreFront.SetActive (true);
-		Instantiate (TyrePuncherEffect, TyreFront.transform.position, Quaternion.identity);
+		TyrePuncherEffect.SetActive (true);
+		TyreFront.SetActive (false);
+
 	}
 
 

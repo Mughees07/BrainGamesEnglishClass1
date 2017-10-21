@@ -15,7 +15,7 @@ public class References : SingletonForScripts<References> {
 	public GameObject boostGlow;
 
 	public Image HealthBar;
-	public Image CoinsBar;
+	public Text Coins;
 	public Text score;
 
 
