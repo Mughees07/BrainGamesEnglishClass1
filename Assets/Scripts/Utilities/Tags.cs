@@ -17,7 +17,7 @@ public class Tags
 	public const string human = "Human";
 	public const string NPC = "NPC";
 
-
+	public const string Coin = "Coin";
 	
 	/**********************************HUD**********************************/
 	// HUD

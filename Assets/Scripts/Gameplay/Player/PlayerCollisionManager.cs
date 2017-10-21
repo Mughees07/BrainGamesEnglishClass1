@@ -17,8 +17,19 @@ public class PlayerCollisionManager : MonoBehaviour {
 	}
 
 
+	public void OnTriggerEnter(Collider other)
+	{
+		Debug.Log ("Collision 3d "+ other.name);
+		if (other.gameObject.tag.Equals (Tags.Coin)) {
+
+			SetCoins (other.transform.position);
+
+		}
+	}
+
 	public void OnTriggerEnter2D(Collider2D other)
 	{
+		Debug.Log ("Collision 2d "+ other.name);
 		other.enabled = false;
 		if (other.gameObject.tag.Equals (Tags.carTrigger)) {
 
@@ -29,19 +40,18 @@ public class PlayerCollisionManager : MonoBehaviour {
 				References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
 			}
 
-			SoundManager.Instance.PlaySound(GameManager.SoundState.THUDSOUND);
+			SoundManager.Instance.PlaySound (GameManager.SoundState.THUDSOUND);
 
-			Debug.Log ("Car Trigger");
-			
+			Debug.Log ("Car Trigger");			
 
 		} else if (other.gameObject.tag.Equals (Tags.RickshawTrigger)) {
 		
 			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.SwitchToRickshaw) {	
-			References.Instance.vehicleController.accelerate = false;
-			References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
-			References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
-			References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
-			//References.Instance.vehicleSelector.SelectRickshaw ();
+				References.Instance.vehicleController.accelerate = false;
+				References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
+				References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
+				References.Instance.tutorialManager.ShowTutorial ((References.Instance.tutorialManager._currentTutorialState));	
+				//References.Instance.vehicleSelector.SelectRickshaw ();
 			}
 			Debug.Log ("Rickshaw Trigger");
 		
@@ -57,8 +67,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 		} else if (other.gameObject.tag.Equals (Tags.HurdleTrigger)) {
 			if (References.Instance.tutorialManager._currentTutorialState == TutorialManager.TutorialState.BoostAttack) {
-				References.Instance.boostButton.SetActive(true);
-				References.Instance.raceButton.SetActive(false);
+				References.Instance.boostButton.SetActive (true);
+				References.Instance.raceButton.SetActive (false);
 				References.Instance.vehicleController.accelerate = false;
 				References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
 				References.Instance.player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;	
@@ -70,16 +80,15 @@ public class PlayerCollisionManager : MonoBehaviour {
 			References.Instance.boostButton.GetComponent<Button> ().interactable = true;
 			//References.Instance.boostButton.SetActive (true);
 
-		}	else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
+		} else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
 			Debug.Log ("Hurdle");
 			if (Variables.boost) {				
 				clearHurdle (other);
 				References.Instance.vehicleController.accelerate = false;
-				Variables.points += 20;
-				Variables.Coins += 1;
+				SetScore ();
 			} else {
 				Variables.currentHealth -= 20;
-				References.Instance.HealthBar.fillAmount = ((float)Variables.currentHealth/100f);
+				References.Instance.HealthBar.fillAmount = ((float)Variables.currentHealth / 100f);
 
 				StartCoroutine (Blink (other));
 			}
@@ -88,10 +97,29 @@ public class PlayerCollisionManager : MonoBehaviour {
 			References.Instance.boostButton.GetComponent<Button> ().interactable = false;
 			//References.Instance.boostButton.SetActive (false);
 
-		}
+		} else if (other.gameObject.tag.Equals (Tags.Coin)) {
 
+			SetCoins (other.transform.position);
+
+		}
+	}
+
+	public void SetScore()
+	{
+		Variables.points += 20;
+
+		References.Instance.score.text = Variables.points.ToString();
 
 	}
+
+	public void SetCoins(Vector3 pos)
+	{
+		Variables.Coins += 1;
+		References.Instance.CoinsBar.fillAmount = (Variables.Coins % 10) / 10;
+		GetComponent<PlayerEffectController> ().ShowCoinEffect (pos);
+	}
+
+
 	public void clearHurdle(Collider2D other)
 	{
 		SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERHITSOUND);

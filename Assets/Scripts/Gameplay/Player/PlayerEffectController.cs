@@ -9,6 +9,7 @@ public class PlayerEffectController : MonoBehaviour {
 	public GameObject TyrePuncherEffect;
 	public GameObject feulEffect;
 	public GameObject HitEffect2;
+	public GameObject CoinEffect;
 	void Start () {
 	
 	}
@@ -22,6 +23,11 @@ public class PlayerEffectController : MonoBehaviour {
 	public void ShowHit2Effect(Vector3 pos)
 	{
 		Instantiate (HitEffect2, pos, Quaternion.identity);
+	}
+
+	public void ShowCoinEffect(Vector3 pos)
+	{
+		Instantiate (CoinEffect, pos, Quaternion.identity);
 	}
 	// Update is called once per frame
 	void Update () {
