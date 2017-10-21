@@ -29,8 +29,11 @@ public class PlayerEffectController : MonoBehaviour {
 	{
 		Instantiate (CoinEffect, pos, Quaternion.identity);
 	}
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void ShowTyreFlatEffect(Vector3 pos)
+	{
+		Instantiate (TyrePuncherEffect, pos, Quaternion.identity);
 	}
+
+
 }

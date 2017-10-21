@@ -136,6 +136,7 @@ public class TutorialManager : MonoBehaviour
 			TutorialTxt.text = Constants.TutorialText[tutorialCount++];
 		else
 			StartCoroutine (ShowText (Constants.TutorialText[tutorialCount++]));
+		
         GAManager.Instance.LogDesignEvent("Tutorial:Step:" + Number);
 
 //        switch (_currentTutorialState)
