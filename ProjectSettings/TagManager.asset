@@ -27,6 +27,19 @@ TagManager:
   - LevelEndTrigger
   - Hurdle
   - HurdleTrigger
+  - FxTemporaire
+  - StarsPanel
+  - LockedLevelScriptCoinVideo
+  - LevelOutOfCoins
+  - ModeSelectionMenu
+  - Revive
+  - PlayerSelectionMenu
+  - LockedLevelSkip
+  - Loading
+  - NoMoreAds
+  - EnemyHealthBar
+  - Coin
+  - TrafficeTrigger
   layers:
   - Default
   - TransparentFX
