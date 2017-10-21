@@ -177,15 +177,15 @@ public class PlayerCollisionManager : MonoBehaviour {
 		References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = true;
 		for(int i=0;i<3;i++)
 		{
-			for(int j=0;j<3;j++)
-			{			
-			References.Instance.player.transform.GetChild (j).gameObject.SetActive (false);			
-			}
+			//for(int j=0;j<3;j++)
+			//{			
+			References.Instance.player.transform.GetChild (0).gameObject.SetActive (false);			
+			//}
 			yield return new WaitForSeconds (0.2f);
-			for(int j=0;j<3;j++)
-			{				
-				References.Instance.player.transform.GetChild (j).gameObject.SetActive (true);
-			}
+			//for(int j=0;j<3;j++)
+			//{				
+				References.Instance.player.transform.GetChild (0).gameObject.SetActive (true);
+			//}
 			yield return new WaitForSeconds (0.2f);
 		}
 		if (Variables.currentHealth <= 0)

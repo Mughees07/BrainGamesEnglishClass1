@@ -107,6 +107,8 @@ public class SimpleControlVehicle : MonoBehaviour {
 
 	// Update is called every frame.
 	void Update(){
+
+
 		if(!isMobile){
 			horizontal = Input.GetAxis ("Horizontal");
 			vertical = Input.GetAxis("Vertical");

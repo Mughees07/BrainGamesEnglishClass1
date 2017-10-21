@@ -7,6 +7,7 @@ public class PlayerEffectController : MonoBehaviour {
 
 	public GameObject HitEffect1;
 	public GameObject TyrePuncherEffect;
+	public GameObject TyreFront;
 	public GameObject feulEffect;
 	public GameObject HitEffect2;
 	public GameObject CoinEffect;
@@ -32,6 +33,7 @@ public class PlayerEffectController : MonoBehaviour {
 
 	public void ShowTyreFlatEffect(Vector3 pos)
 	{
+		TyreFront.SetActive (true);
 		Instantiate (TyrePuncherEffect, pos, Quaternion.identity);
 	}
 

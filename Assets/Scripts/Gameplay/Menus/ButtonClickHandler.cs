@@ -19,4 +19,20 @@ public class ButtonClickHandler : MonoBehaviour {
 		if(this.name.Equals("Race"))
 		References.Instance.vehicleController.accelerate = false;
 	}
+
+	void Update(){
+
+		#if UNITY_EDITOR
+
+		if(Input.GetKeyDown(KeyCode.DownArrow))
+			References.Instance.vehicleController.accelerate = true;
+		else  if(Input.GetKeyDown(KeyCode.UpArrow))
+			References.Instance.vehicleController.accelerate = false;
+		else  if(Input.GetKeyDown(KeyCode.Space))
+		{
+			if(References.Instance.boostButton.GetComponent<Button>().interactable)
+				References.Instance.vehicleController.boost ();
+		}
+		#endif 
+	}
 }
