@@ -250,7 +250,7 @@ GameObject:
   - 114: {fileID: 11465900}
   - 114: {fileID: 114000010999692062}
   m_Layer: 5
-  m_Name: Boy (1)
+  m_Name: books
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1262,9 +1262,9 @@ RectTransform:
   - {fileID: 22407842}
   m_Father: {fileID: 22418994}
   m_RootOrder: 6
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -614.5, y: 384}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.5, y: 0}
   m_SizeDelta: {x: 1229, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22476852

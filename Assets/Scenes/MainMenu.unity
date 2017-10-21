@@ -212,7 +212,7 @@ Prefab:
     - target: {fileID: 11400002, guid: 6c76b81841cc4420fa32fbe2c8eb79af, type: 2}
       propertyPath: typeSound
       value: 
-      objectReference: {fileID: 8300000, guid: 07c2380520218824b97d4985c80762f6, type: 3}
+      objectReference: {fileID: 8300000, guid: 56bbb41d99e4cfc449efdda310616d94, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c76b81841cc4420fa32fbe2c8eb79af, type: 2}
   m_IsPrefabParent: 0

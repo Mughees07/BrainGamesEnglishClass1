@@ -55,6 +55,8 @@ public class TutorialManager : MonoBehaviour
 		References.Instance.raceButton.SetActive (true);
 		References.Instance.boostButton.SetActive (true);
 	}
+
+
 	IEnumerator ShowText(string desc)
 	{
 		Debug.Log ("StateShowText:" + _currentTutorialState);

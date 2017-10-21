@@ -12,6 +12,7 @@ public class References : SingletonForScripts<References> {
 
 	public GameObject raceButton;
 	public GameObject boostButton;
+	public GameObject boostGlow;
 
 	public Image HealthBar;
 	public Image CoinsBar;

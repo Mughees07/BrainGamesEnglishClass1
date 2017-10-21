@@ -41,6 +41,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 			}
 
 			SoundManager.Instance.PlaySound (GameManager.SoundState.THUDSOUND);
+			References.Instance.player.GetComponent<PlayerEffectController> ().ShowTyreFlatEffect ();
 
 			Debug.Log ("Car Trigger");			
 
@@ -78,6 +79,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 			Debug.Log ("Hurdle Trigger");
 			References.Instance.boostButton.GetComponent<Button> ().interactable = true;
+			References.Instance.boostGlow.SetActive (true);
 			//References.Instance.boostButton.SetActive (true);
 
 		} else if (other.gameObject.tag.Equals (Tags.Hurdle)) {
@@ -94,6 +96,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 			Variables.boost = false;
 			References.Instance.boostButton.GetComponent<Button> ().interactable = false;
+			References.Instance.boostGlow.SetActive (false);
 			//References.Instance.boostButton.SetActive (false);
 
 		} else if (other.gameObject.tag.Equals (Tags.Coin)) {
@@ -192,8 +195,8 @@ public class PlayerCollisionManager : MonoBehaviour {
 			//}
 			yield return new WaitForSeconds (0.2f);
 		}
-		if (Variables.currentHealth <= 0)
-			ShowLevelFailPopup ();
+		if (Variables.currentHealth <= 0) 			
+		ShowLevelFailPopup ();
 		else
 		References.Instance.player.GetComponent<Rigidbody2D> ().isKinematic = false;
 		clearHurdleEase (other);	
@@ -203,6 +206,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 	{
 		//if(!GameObject.FindWithTag(Tags.LevelExit))
 		//	Time.timeScale = 1;
+		SoundManager.Instance.PlaySound(GameManager.SoundState.LEVELCOMPLETIONSOUND);
 		GAManager.Instance.LogDesignEvent("GamePlay:LevelComplete:"+ (Constants.selectedLevel+1));
 		Instantiate(Resources.Load(Constants.LevelComplete));
 	}
@@ -211,6 +215,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 	{
 		//if(!GameObject.FindWithTag(Tags.LevelExit))
 		//	Time.timeScale = 1;
+		SoundManager.Instance.PlaySound(GameManager.SoundState.LEVELFAIL);
 		GAManager.Instance.LogDesignEvent("GamePlay:LevelComplete:"+ (Constants.selectedLevel+1));
 		Instantiate(Resources.Load(Constants.LevelFail));
 	}

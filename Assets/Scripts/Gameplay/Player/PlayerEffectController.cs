@@ -31,10 +31,10 @@ public class PlayerEffectController : MonoBehaviour {
 		Instantiate (CoinEffect, pos, Quaternion.identity);
 	}
 
-	public void ShowTyreFlatEffect(Vector3 pos)
+	public void ShowTyreFlatEffect()
 	{
 		TyreFront.SetActive (true);
-		Instantiate (TyrePuncherEffect, pos, Quaternion.identity);
+		Instantiate (TyrePuncherEffect, TyreFront.transform.position, Quaternion.identity);
 	}
 
 
