@@ -9,6 +9,7 @@ public class ButtonClickHandler : MonoBehaviour {
 	public void OnPointerDown(){
 		if (this.name.Equals ("Race")) {						
 			References.Instance.vehicleController.accelerate = true;
+
 		} else if (this.name.Equals ("Boost")) {
 			if(References.Instance.boostButton.GetComponent<Button>().interactable)
 			References.Instance.vehicleController.boost ();
@@ -16,8 +17,10 @@ public class ButtonClickHandler : MonoBehaviour {
 
 	}
 	public void OnPointerUp(){
-		if(this.name.Equals("Race"))
-		References.Instance.vehicleController.accelerate = false;
+		if (this.name.Equals ("Race")) {
+			References.Instance.vehicleController.accelerate = false;
+
+		}
 	}
 
 	void Update(){

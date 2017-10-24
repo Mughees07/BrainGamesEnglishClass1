@@ -316,7 +316,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -637,10 +637,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelUpSound: {fileID: 8300000, guid: 01f4a395d3cf144a584b83287a8c8b75, type: 3}
   buttonClickSound: {fileID: 8300000, guid: 177283bc163926242a71d3f26ca8f394, type: 3}
+  typeSound: {fileID: 8300000, guid: 56bbb41d99e4cfc449efdda310616d94, type: 3}
   menuBGSound: {fileID: 8300000, guid: 7a04408fabccbbe4f85b7c0270a49c25, type: 3}
   gamePlayBGSound: {fileID: 8300000, guid: 4a0ca1e6e1353f941bb9cdcdc22fa7fc, type: 3}
-  levelCompleteSound: {fileID: 8300000, guid: a796b6bf9582347eba4ea3ce43f9edf0, type: 3}
-  levelFailSound: {fileID: 8300000, guid: 3844bc580f5a541cf86507648e238ed7, type: 3}
+  levelCompleteSound: {fileID: 8300000, guid: f43b60ef9773ac645b10f912ec6830d3, type: 3}
+  levelFailSound: {fileID: 8300000, guid: 8f49bb77e032c8841b55aaa465ff5cf7, type: 3}
   upgradeSound: {fileID: 8300000, guid: 05995e94c905b4e2a8d8b0de3d71a5dc, type: 3}
   doorOpeningSound: {fileID: 8300000, guid: 56c2ee139e8c844ba9a3a17370e3b763, type: 3}
   nightBGSound: {fileID: 0}

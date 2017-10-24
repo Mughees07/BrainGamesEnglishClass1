@@ -86,7 +86,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 			Debug.Log ("Hurdle");
 			if (Variables.boost) {				
 				clearHurdle (other);
-				References.Instance.vehicleController.accelerate = false;
+				//References.Instance.vehicleController.accelerate = false;
 				SetScore ();
 			} else {
 				
@@ -112,7 +112,7 @@ public class PlayerCollisionManager : MonoBehaviour {
 
 	public void SetHealth()
 	{
-		Variables.currentHealth -= 20;
+		Variables.currentHealth -= 10;
 		StartCoroutine (FillBar (-0.1f,References.Instance.HealthBar.fillAmount));
 		//References.Instance.HealthBar.fillAmount = ;
 	}

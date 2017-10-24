@@ -2234,8 +2234,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1278644017}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 27.1, z: 0}
-  m_LocalScale: {x: 0.9547896, y: 1.0429747, z: 1}
+  m_LocalPosition: {x: 6.8, y: 31.8, z: 0}
+  m_LocalScale: {x: 1.2579838, y: 1.0429747, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1617699283}
@@ -2314,8 +2314,8 @@ MonoBehaviour:
   Movement: 1
   Rotation: 0
   Scale: 0
-  initialPosition3D: {x: 2.9, y: 27.1, z: 0}
-  targetPosition3D: {x: 2.9, y: 11.4, z: 0}
+  initialPosition3D: {x: 6.8, y: 27.1, z: 0}
+  targetPosition3D: {x: 6.8, y: 11.5, z: 0}
   initialPosition2D: {x: 0, y: 0}
   targetPosition2D: {x: 0, y: 0}
   initialRotation: {x: 0, y: 0, z: 0}

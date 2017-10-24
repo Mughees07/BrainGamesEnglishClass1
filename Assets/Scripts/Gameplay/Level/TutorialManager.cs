@@ -50,6 +50,11 @@ public class TutorialManager : MonoBehaviour
 
 
     }
+
+	public void showCutScene()
+	{
+		GameManager.Instance.LoadLoadingScreen(Constants.CutScene);
+	}
 	public void showControls()
 	{
 		References.Instance.raceButton.SetActive (true);

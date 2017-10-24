@@ -17,6 +17,7 @@ public class Variables
 
 	public static bool boost=false;
 
+	public static bool RacePressed = false;
 
 
 

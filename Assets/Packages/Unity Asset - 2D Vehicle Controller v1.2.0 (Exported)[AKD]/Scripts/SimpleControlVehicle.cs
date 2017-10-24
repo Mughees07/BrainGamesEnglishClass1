@@ -202,13 +202,14 @@ public class SimpleControlVehicle : MonoBehaviour {
 		//SoundManager.Instance.PlaySound(GameManager.SoundState.PLAYERATTACKSOUND);
 
 		Variables.boost = true;
-		accelerate = false;
+		grounded = false;
 		GetComponent<Rigidbody2D> ().AddForce (new Vector2 (10, 2), ForceMode2D.Impulse);
 		Invoke("disableBoost",2f);
 	}
 
 	public void disableBoost()
 	{
+		grounded = true;
 		Variables.boost = false;
 	}
 	// Assign the velocity to the regidbody2D of the vehicle.
@@ -246,7 +247,7 @@ public class SimpleControlVehicle : MonoBehaviour {
 //			}
 //		}
 			else{
-			if(GetComponent<Rigidbody2D>().velocity.x > 0 && grounded){
+			if(GetComponent<Rigidbody2D>().velocity.x > 0){ //&& grounded){
 				GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x - GetComponent<Rigidbody2D>().velocity.x/50, GetComponent<Rigidbody2D>().velocity.y);
 				if(GetComponent<Rigidbody2D>().velocity.x < 0)
 					GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
